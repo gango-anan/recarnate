@@ -6,35 +6,41 @@ import { Link } from 'react-router-dom';
 const LandingPage = () => {
 	return (
 		<div className='relative w-screen h-screen bg-landing-page bg-no-repeat bg-cover bg-center'>
-			<header>
-				<div>
+			<header className='flex justify-between items-center px-12 py-5'>
+				<div className='h-12 w-48'>
 					<img
 						src={Logo}
 						alt='Logo'
+						className='w-full h-auto'
 					/>
 				</div>
-				<div>
-					<div className='flex items-center'>
-						<img
-							src={HowToPlayPrompt}
-							alt='Game tutorial'
-							className='w-9 h-9'
-						/>
-						<span className='ml-1'>How to play</span>
-					</div>
+				<div className='ml-4'>
+					<Link
+						to='/prompt'
+						className='flex items-center'>
+						<span className='w-8 h-8'>
+							{' '}
+							<img
+								src={HowToPlayPrompt}
+								alt='Game tutorial'
+								className='w-full h-auto'
+							/>
+						</span>
+						<span className='ml-2 text-white text-sm'>How to play</span>
+					</Link>
 				</div>
 			</header>
-			<main>
-				<section>
-					<h4 className='landing-page-heading'>
+			<main className='mt-10'>
+				<section className='px-12 custom-width'>
+					<h4 className='landing-page-heading text-4xl text-white'>
 						Sorting Items for Disposal has Never Been More Fun
 					</h4>
-					<p className='landing-description'>
+					<p className='landing-description text-white text-base mt-3'>
 						Recarnate teaches you about waste management methods through an
 						interactive e&#45;learning platform where consumers decide an
 						item&apos;s fate&#59; death or recarnation
 					</p>
-					<div>
+					<div className='mt-16'>
 						<button>Play Sorting Game</button>
 					</div>
 				</section>
