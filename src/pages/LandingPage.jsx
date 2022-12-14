@@ -39,11 +39,11 @@ const LandingPage = () => {
 				</section>
 			</main>
 			<footer>
-				<div>
+				<nav>
 					<p>Info Bank</p>
 					<p>About Recarnate</p>
 					<p>Team</p>
-				</div>
+				</nav>
 				<div>
 					<p>&#169;Copyright 2022. All rights reserved.</p>
 				</div>

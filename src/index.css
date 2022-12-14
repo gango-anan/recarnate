@@ -1,3 +1,26 @@
+@import url('https://fonts.cdnfonts.com/css/clash-display');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.landing-page-heading,
+.landing-description {
+	font-family: 'Clash Display', sans-serif;
+	font-style: normal;
+	color: #ffffff;
+}
+
+.landing-page-heading {
+	font-weight: 700;
+	font-size: 3.375rem;
+	line-height: 4.125rem;
+	text-shadow: 0px 1.80769px 0.903846px rgba(42, 28, 2, 0.24),
+		0px 0px 43.3846px rgba(198, 216, 198, 0.72);
+}
+
+.landing-description {
+	font-weight: 500;
+	font-size: 1.5rem;
+	line-height: 1.875rem;
+	letter-spacing: 0.06em;
+}
