@@ -3,9 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+	font-family: 'Clash Display', sans-serif;
+}
+
 .landing-page-heading,
 .landing-description {
-	font-family: 'Clash Display', sans-serif;
 	font-style: normal;
 	color: #ffffff;
 }
