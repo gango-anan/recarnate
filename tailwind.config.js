@@ -10,6 +10,9 @@ module.exports = {
 				'footer-bg-color': '#158315',
 				'play-game-btn-bg-color': '#FFB703',
 			},
+			colors: {
+				'play-btn-font-color': '#2A1C02',
+			},
 		},
 	},
 	plugins: [],

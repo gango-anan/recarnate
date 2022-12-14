@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from '../data/images/Logo.svg';
 import HowToPlayPrompt from '../data/images/HowToPlayPrompt.png';
 import { Link } from 'react-router-dom';
+import PlayButtonIcon from '../data/images/PlayButtonIcon.svg';
 
 const LandingPage = () => {
 	return (
@@ -41,11 +42,21 @@ const LandingPage = () => {
 						item&apos;s fate&#59; death or recarnation
 					</p>
 					<div className='mt-16'>
-						<button>Play Sorting Game</button>
+						<Link
+							to='/preloader'
+							type='button'
+							className='bg-play-game-btn-bg-color text-play-btn-font-color text-lg font-bold px-12 py-3 play-button flex items-center max-w-max gap-2'>
+							<span>
+								<img
+									src={PlayButtonIcon}
+									alt='play game'
+								/>
+							</span>
+							<span>Play Sorting Game</span>
+						</Link>
 					</div>
 				</section>
 			</main>
-
 			<footer className='bg-footer-bg-color w-full fixed left-0 bottom-0 text-white flex justify-between items-center px-12 py-5 text-sm'>
 				<nav className='flex justify-between gap-10'>
 					<p>

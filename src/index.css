@@ -32,3 +32,9 @@
 .custom-width {
 	max-width: 600px;
 }
+
+.play-button {
+	border: 1px solid #ffb703;
+	box-shadow: 8px 8px 0px #fea302, inset 4px 4px 4px rgba(255, 238, 181, 0.32);
+	border-radius: 24px;
+}
