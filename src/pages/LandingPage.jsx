@@ -17,7 +17,7 @@ const LandingPage = () => {
 				</div>
 				<div className='ml-4'>
 					<Link
-						to='/prompt'
+						to='/game-tutorial'
 						className='flex items-center'>
 						<span className='w-8 h-8'>
 							{' '}
