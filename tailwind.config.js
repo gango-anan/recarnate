@@ -7,7 +7,7 @@ module.exports = {
 				'landing-page': "url('/src/data/images/bg_landing_page.svg')",
 			},
 			backgroundColor: {
-				'footer-bg-color': '#158315',
+				'recarnate-bg-green': '#158315',
 				'secondary-color-light': '#FFB703',
 				'secondary-color-dark': '#FFC73B',
 				'modal-background': 'rgba(0, 0, 0, 0.7)',

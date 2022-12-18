@@ -70,7 +70,7 @@ const LandingPage = () => {
 					</div>
 				</section>
 			</main>
-			<footer className='bg-footer-bg-color w-full fixed left-0 bottom-0 text-white flex justify-between items-center px-12 py-5 text-sm'>
+			<footer className='bg-recarnate-bg-green w-full fixed left-0 bottom-0 text-white flex justify-between items-center px-12 py-5 text-sm'>
 				<nav className='flex justify-between gap-10'>
 					<p>
 						<Link to='/info'>Info Bank</Link>
