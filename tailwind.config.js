@@ -10,6 +10,7 @@ module.exports = {
 				'footer-bg-color': '#158315',
 				'secondary-color-light': '#FFB703',
 				'secondary-color-dark': '#FFC73B',
+				'modal-background': 'rgba(0, 0, 0, 0.7)',
 			},
 			colors: {
 				'play-btn-font-color': '#2A1C02',
