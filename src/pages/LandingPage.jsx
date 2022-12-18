@@ -3,10 +3,24 @@ import Logo from '../data/images/Logo.svg';
 import HowToPlayPrompt from '../data/images/HowToPlayPrompt.png';
 import { Link } from 'react-router-dom';
 import PlayButtonIcon from '../data/images/PlayButtonIcon.svg';
+import GameTutorialModal from './GameTutorialModal';
 
 const LandingPage = () => {
+	const [status, setStatus] = React.useState({
+		showModal: false,
+	});
+	const openModal = () => {
+		setStatus({ showModal: true });
+	};
+	const closeModal = () => {
+		setStatus({ showModal: false });
+	};
 	return (
 		<div className='relative w-screen h-screen bg-landing-page bg-no-repeat bg-cover bg-center'>
+			<GameTutorialModal
+				status={status}
+				closeModal={closeModal}
+			/>
 			<header className='flex justify-between items-center px-12 py-5'>
 				<div className='h-12 w-48'>
 					<img
@@ -16,9 +30,9 @@ const LandingPage = () => {
 					/>
 				</div>
 				<div className='ml-4'>
-					<Link
-						to='/game-tutorial'
-						className='flex items-center'>
+					<button
+						className='flex items-center'
+						onClick={openModal}>
 						<span className='w-8 h-8'>
 							{' '}
 							<img
@@ -28,7 +42,7 @@ const LandingPage = () => {
 							/>
 						</span>
 						<span className='ml-2 text-white text-sm'>How to play</span>
-					</Link>
+					</button>
 				</div>
 			</header>
 			<main className='mt-10'>
@@ -42,9 +56,8 @@ const LandingPage = () => {
 						item&apos;s fate&#59; death or recarnation
 					</p>
 					<div className='mt-16'>
-						<Link
-							to='/preloader'
-							type='button'
+						<button
+							role='button'
 							className='bg-secondary-color-light text-play-btn-font-color text-lg font-bold px-12 py-3 play-button flex items-center max-w-max gap-2'>
 							<span>
 								<img
@@ -53,7 +66,7 @@ const LandingPage = () => {
 								/>
 							</span>
 							<span>Play Sorting Game</span>
-						</Link>
+						</button>
 					</div>
 				</section>
 			</main>
