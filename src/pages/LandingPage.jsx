@@ -45,7 +45,7 @@ const LandingPage = () => {
 						<Link
 							to='/preloader'
 							type='button'
-							className='bg-play-game-btn-bg-color text-play-btn-font-color text-lg font-bold px-12 py-3 play-button flex items-center max-w-max gap-2'>
+							className='bg-secondary-color-light text-play-btn-font-color text-lg font-bold px-12 py-3 play-button flex items-center max-w-max gap-2'>
 							<span>
 								<img
 									src={PlayButtonIcon}

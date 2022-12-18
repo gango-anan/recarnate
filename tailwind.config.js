@@ -8,10 +8,15 @@ module.exports = {
 			},
 			backgroundColor: {
 				'footer-bg-color': '#158315',
-				'play-game-btn-bg-color': '#FFB703',
+				'secondary-color-light': '#FFB703',
+				'secondary-color-dark': '#FFC73B',
 			},
 			colors: {
 				'play-btn-font-color': '#2A1C02',
+			},
+			height: {
+				360: '360px',
+				336: '336px',
 			},
 		},
 	},
