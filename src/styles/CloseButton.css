@@ -1,0 +1,28 @@
+.tutorial-close-button {
+	box-shadow: 1.384px 2.76799px 0px #015401,
+		inset 2.64102px 2.64102px 2.64102px rgba(255, 238, 181, 0.32);
+}
+
+.correct-response-button {
+	box-shadow: 1.55556px 3.11111px 0px #158315,
+		inset 2.9684px 2.9684px 2.9684px rgba(255, 238, 181, 0.32);
+}
+
+.incorrect-response-button {
+	box-shadow: 1.55556px 3.11111px 0px #da4b4b,
+		inset 2.9684px 2.9684px 2.9684px rgba(255, 238, 181, 0.32);
+}
+
+.randomize-button {
+	box-shadow: 0.740741px 1.48148px 0px #015401,
+		inset 1.41352px 1.41352px 1.41352px rgba(255, 238, 181, 0.32);
+}
+
+.game-info-button {
+	box-shadow: 0.740741px 1.48148px 0px #fea302,
+		inset 1.41352px 1.41352px 1.41352px rgba(255, 238, 181, 0.32);
+}
+
+.game-play-button {
+	box-shadow: 8px 8px 0px #fea302, inset 4px 4px 4px rgba(255, 238, 181, 0.32);
+}
