@@ -56,7 +56,7 @@ const LandingPage = () => {
 						item&apos;s fate&#59; death or recarnation
 					</p>
 					<div className='mt-16'>
-						<button className='bg-recarnate-secondary-400 text-play-btn-font-color text-lg font-bold px-12 py-3 play-button flex items-center max-w-max gap-2'>
+						<button className='bg-recarnate-secondary-400 text-recarnate-neutral-800 text-lg font-bold px-12 py-3 play-button flex items-center max-w-max gap-2'>
 							<span>
 								<img
 									src={PlayButtonIcon}

@@ -37,3 +37,7 @@
 .recarnate-secondary-gradient {
 	background: linear-gradient(180deg, #ffb703 0%, #ffcd29 92.94%);
 }
+
+.game-tutorial-title {
+	letter-spacing: 0.05em;
+}
