@@ -56,9 +56,7 @@ const LandingPage = () => {
 						item&apos;s fate&#59; death or recarnation
 					</p>
 					<div className='mt-16'>
-						<button
-							role='button'
-							className='bg-secondary-color-light text-play-btn-font-color text-lg font-bold px-12 py-3 play-button flex items-center max-w-max gap-2'>
+						<button className='bg-recarnate-secondary-400 text-play-btn-font-color text-lg font-bold px-12 py-3 play-button flex items-center max-w-max gap-2'>
 							<span>
 								<img
 									src={PlayButtonIcon}
@@ -70,7 +68,7 @@ const LandingPage = () => {
 					</div>
 				</section>
 			</main>
-			<footer className='bg-recarnate-bg-green w-full fixed left-0 bottom-0 text-white flex justify-between items-center px-12 py-5 text-sm'>
+			<footer className='bg-recarnate-primary-400 w-full fixed left-0 bottom-0 text-white flex justify-between items-center px-12 py-5 text-sm'>
 				<nav className='flex justify-between gap-10'>
 					<p>
 						<Link to='/info'>Info Bank</Link>

@@ -1,17 +1,24 @@
 import React from 'react';
 import DisposalMethod from './DisposalMethod';
 import { disposalMethods } from '../data/data';
-import InfoIcon from '../data/images/InfoIcon.jpg';
+import InfoIcon from '../data/images/InfoIcon.svg';
+import GameCommandButton from './GameCommandButton';
+import { gameButtonDetails } from '../data/data';
 
 const GameTutorial = ({ closeModal }) => {
+	const { btnColor, icon, btnShadow, btnInfo } = gameButtonDetails.closeBtn;
 	return (
-		<div className='w-5/12 mx-auto my-32 py-3 bg-secondary-color-dark rounded-3xl h-360'>
-			<button
-				onClick={closeModal}
-				className='bg-gray-600 text-white p-3'>
-				Close
-			</button>
-			<div className='rounded-3xl pl-8 pr-4 py-8 bg-secondary-color-light h-336'>
+		<div className='w-5/12 mx-auto my-32 py-3 recarnate-secondary-gradient rounded-3xl h-360 relative'>
+			<div className='absolute -right-4 -top-8'>
+				<GameCommandButton
+					closeModal={closeModal}
+					btnColor={btnColor}
+					icon={icon}
+					btnShadow={btnShadow}
+					btnInfo={btnInfo}
+				/>
+			</div>
+			<div className='rounded-3xl pl-8 pr-4 py-8 bg-recarnate-secondary-500 h-336'>
 				<div className='overflow-y-scroll h-full px-5'>
 					<div>
 						<h2 className='flex'>
