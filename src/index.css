@@ -10,13 +10,10 @@
 .landing-page-heading,
 .landing-description {
 	font-style: normal;
-	/* color: #ffffff; */
 }
 
 .landing-page-heading {
 	font-weight: 700;
-	/* font-size: 3.375rem;
-	line-height: 4.125rem; */
 	letter-spacing: 0.02em;
 	text-shadow: 0px 1.80769px 0.903846px rgba(42, 28, 2, 0.24),
 		0px 0px 43.3846px rgba(198, 216, 198, 0.72);
@@ -24,8 +21,6 @@
 
 .landing-description {
 	font-weight: 500;
-	/* font-size: 1.5rem;
-	line-height: 1.875rem;*/
 	letter-spacing: 0.01em;
 }
 
@@ -37,4 +32,8 @@
 	border: 1px solid #ffb703;
 	box-shadow: 8px 8px 0px #fea302, inset 4px 4px 4px rgba(255, 238, 181, 0.32);
 	border-radius: 24px;
+}
+
+.recarnate-secondary-gradient {
+	background: linear-gradient(180deg, #ffb703 0%, #ffcd29 92.94%);
 }
