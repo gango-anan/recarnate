@@ -3,6 +3,28 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+	.scrollbar::-webkit-scrollbar {
+		width: 30px;
+	}
+
+	.scrollbar::-webkit-scrollbar-track {
+		border-radius: 100vh;
+		background: #fbc55b;
+	}
+
+	.scrollbar::-webkit-scrollbar-thumb {
+		background: #ffe6b4;
+		border-radius: 100vh;
+		border: 1px solid #f6f7ed;
+		height: 100px;
+	}
+
+	.scrollbar::-webkit-scrollbar-thumb:hover {
+		background: #c0a0b9;
+	}
+}
+
 :root {
 	font-family: 'Clash Display', sans-serif;
 }

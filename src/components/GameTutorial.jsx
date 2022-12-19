@@ -19,7 +19,7 @@ const GameTutorial = ({ closeModal }) => {
 				/>
 			</div>
 			<div className='rounded-3xl pl-8 pr-4 py-8 bg-recarnate-secondary-500 h-336'>
-				<div className='overflow-y-scroll h-full px-5'>
+				<div className='overflow-y-scroll h-full px-5 scrollbar'>
 					<div className='flex items-center gap-2'>
 						<span>
 							<img
