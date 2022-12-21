@@ -3,6 +3,10 @@
 	animation: move 6s forwards normal running linear;
 }
 
+.first-text {
+	animation: reveal-first-text 2s forwards;
+}
+
 @keyframes move {
 	0% {
 		transform: translateY(0px);
@@ -15,5 +19,17 @@
 	}
 	100% {
 		transform: translateY(-120px);
+	}
+}
+
+@keyframes reveal-first-text {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
 	}
 }
