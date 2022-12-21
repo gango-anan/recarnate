@@ -21,16 +21,16 @@
 
 @keyframes move {
 	0% {
-		transform: translateY(0px);
+		transform: translateY(0rem);
 	}
 	25% {
-		transform: translateY(-56px);
+		transform: translateY(-3.5rem);
 	}
 	50% {
-		transform: translateY(-82px);
+		transform: translateY(-5.125rem);
 	}
 	100% {
-		transform: translateY(-120px);
+		transform: translateY(-7.5rem);
 	}
 }
 
