@@ -1,3 +1,19 @@
 .logo-animation {
 	margin-bottom: -127px;
+	animation: move 6s forwards normal running linear;
+}
+
+@keyframes move {
+	0% {
+		transform: translateY(0px);
+	}
+	25% {
+		transform: translateY(-56px);
+	}
+	50% {
+		transform: translateY(-82px);
+	}
+	100% {
+		transform: translateY(-120px);
+	}
 }
