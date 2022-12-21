@@ -16,6 +16,8 @@ module.exports = {
 			},
 			colors: {
 				'recarnate-neutral-800': '#2A1C02',
+				'recarnate-primary-font-500': '#015401',
+				'recarnate-secondary-font-500': '#fea302',
 			},
 			height: {
 				360: '360px',

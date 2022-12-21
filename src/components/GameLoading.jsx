@@ -11,17 +11,25 @@ const GameLoading = () => {
 				/>
 			</div>
 			<div className='logo-hidder flex flex-col justify-start items-center h-1/2 w-full bg-white z-10'>
-				<div className='first-text'>
-					<span>The fate of your trash rests in your hands</span>
+				<div className='first-text opacity-1 inline-block overflow-hidden whitespace-nowrap'>
+					<span className='text-2xl font-bold text-recarnate-neutral-800'>
+						The fate of your trash rests in your hands
+					</span>
 				</div>
-				<div className='second-text'>
-					<span>No, seriously... It does</span>
+				<div className='second-text opacity-0 inline-block overflow-hidden whitespace-nowrap'>
+					<span className='text-2xl font-bold text-recarnate-primary-font-500'>
+						No, seriously... It does
+					</span>
 				</div>
-				<div className='third-text'>
-					<span>What will it be?</span>
+				<div className='third-text opacity-0 inline-block overflow-hidden whitespace-nowrap'>
+					<span className='text-2xl font-bold text-recarnate-secondary-font-500'>
+						What will it be?
+					</span>
 				</div>
-				<div className='fourth-text'>
-					<span>Death 💀 or recarnation🌿?</span>
+				<div className='fourth-text opacity-0 inline-block overflow-hidden whitespace-nowrap'>
+					<span className='text-2xl font-bold text-recarnate-neutral-800'>
+						Death 💀 or recarnation🌿?
+					</span>
 				</div>
 			</div>
 		</div>
