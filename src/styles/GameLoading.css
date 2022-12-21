@@ -11,6 +11,10 @@
 	animation: reveal-second-text 2s 2s;
 }
 
+.third-text {
+	animation: reveal-third-text 2s 4s;
+}
+
 @keyframes move {
 	0% {
 		transform: translateY(0px);
@@ -50,5 +54,20 @@
 	100% {
 		opacity: 0;
 		margin-top: -2rem;
+	}
+}
+
+@keyframes reveal-third-text {
+	0% {
+		opacity: 1;
+		margin-top: -4rem;
+	}
+	50% {
+		opacity: 1;
+		margin-top: -4rem;
+	}
+	100% {
+		opacity: 0;
+		margin-top: -4rem;
 	}
 }
