@@ -27,6 +27,7 @@
 
 :root {
 	font-family: 'Clash Display', sans-serif;
+	overflow: hidden;
 }
 
 .landing-page-heading,
