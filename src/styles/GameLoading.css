@@ -1,10 +1,14 @@
 .logo-animation {
-	margin-bottom: -127px;
+	margin-bottom: -7.75rem;
 	animation: move 6s forwards normal running linear;
 }
 
 .first-text {
 	animation: reveal-first-text 2s forwards;
+}
+
+.second-text {
+	animation: reveal-second-text 2s 2s;
 }
 
 @keyframes move {
@@ -31,5 +35,20 @@
 	}
 	100% {
 		opacity: 0;
+	}
+}
+
+@keyframes reveal-second-text {
+	0% {
+		opacity: 1;
+		margin-top: -2rem;
+	}
+	50% {
+		opacity: 1;
+		margin-top: -2rem;
+	}
+	100% {
+		opacity: 0;
+		margin-top: -2rem;
 	}
 }
