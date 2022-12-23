@@ -1,5 +1,6 @@
 import React from 'react';
 import LogoInitial from '../data/images/LogoInitial.svg';
+import '../styles/GameLoading.css';
 
 const GameLoading = () => {
 	return (
