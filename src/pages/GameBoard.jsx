@@ -1,16 +1,15 @@
 import React from 'react';
-import '../styles/GameBoard.css';
-import CompostBin from '../data/images/CompostBinIcon.svg';
-import HazardousWasteBin from '../data/images/HazardousWasteBinIcon.svg';
-import RepurposeBox from '../data/images/RepurposeBoxIcon.svg';
-import RecycleBin from '../data/images/RecycleBinIcon.svg';
-import BulkPickupTruck from '../data/images/BulkPickupTruckIcon.svg';
-import Road from '../data/images/Road.svg';
-import Plants from '../data/images/PlantsIcon.svg';
-import Tree from '../data/images/TreeIcon.svg';
-import TrashBin from '../data/images/TrashBinIcon.svg';
 import GameCommandButton from '../components/GameCommandButton';
 import { gameButtonDetails } from '../data/data';
+import BulkPickupTruck from '../data/images/BulkPickupTruckIcon.svg';
+import CompostBin from '../data/images/CompostBinIcon.svg';
+import HazardousWasteBin from '../data/images/HazardousWasteBinIcon.svg';
+import RecycleBin from '../data/images/RecycleBinIcon.svg';
+import RepurposeBox from '../data/images/RepurposeBoxIcon.svg';
+import Road from '../data/images/Road.svg';
+import TrashBin from '../data/images/TrashBinIcon.svg';
+import '../styles/GameBoard.css';
+import ToolTip from './ToolTip';
 
 const GameBoard = () => {
 	const { gameInfoBtn, randomizeBtn, soundBtn, failureBtn } = gameButtonDetails;
@@ -18,26 +17,46 @@ const GameBoard = () => {
 		<div className='game-container w-screen h-screen'>
 			<div className='game-inner-container w-100 h-screen relative'>
 				<div className='absolute w-screen flex justify-end gap-10 px-20 py-5'>
-					<span>
-						<GameCommandButton {...gameInfoBtn} />
-					</span>
-					<span>
-						<GameCommandButton {...randomizeBtn} />
-					</span>
-					<span>
-						<GameCommandButton {...soundBtn} />
-					</span>
-					<span>
-						<GameCommandButton {...failureBtn} />
-					</span>
+					<ToolTip
+						content='Game Info'
+						direction='bottom'>
+						<span>
+							<GameCommandButton {...gameInfoBtn} />
+						</span>
+					</ToolTip>
+					<ToolTip
+						content='Random Item'
+						direction='bottom'>
+						<span>
+							<GameCommandButton {...randomizeBtn} />
+						</span>
+					</ToolTip>
+					<ToolTip
+						content='Sound'
+						direction='bottom'>
+						<span>
+							<GameCommandButton {...soundBtn} />
+						</span>
+					</ToolTip>
+					<ToolTip
+						content='Cancel Game'
+						direction='bottom'>
+						<span>
+							<GameCommandButton {...failureBtn} />
+						</span>
+					</ToolTip>
 				</div>
 
 				<div className='absolute bulk-pickup-track w-40 h-40'>
-					<img
-						src={BulkPickupTruck}
-						alt='Bulk Pick up Truck'
-						className='w-100 h-auto'
-					/>
+					<ToolTip
+						content='Bulk Pickup Track'
+						direction='top'>
+						<img
+							src={BulkPickupTruck}
+							alt='Bulk Pick up Truck'
+							className='w-100 h-auto'
+						/>
+					</ToolTip>
 				</div>
 
 				<div className='absolute w-screen road'>
@@ -49,45 +68,61 @@ const GameBoard = () => {
 				</div>
 
 				<div className='absolute bottom-0 repurpose-box'>
-					<img
-						src={RepurposeBox}
-						alt='Repurpose Box'
-						className='w-40 h-32'
-					/>
+					<ToolTip
+						content='Repuporse Box'
+						direction='top'>
+						{' '}
+						<img
+							src={RepurposeBox}
+							alt='Repurpose Box'
+							className='w-40 h-32'
+						/>
+					</ToolTip>
 				</div>
 				<div className='absolute bottom-5 trash-bin'>
-					<img
-						src={TrashBin}
-						alt='Trash Bin'
-						className='w-32 h-28'
-					/>
+					<ToolTip
+						content='Trash Bin'
+						direction='top'>
+						<img
+							src={TrashBin}
+							alt='Trash Bin'
+							className='w-32 h-28'
+						/>
+					</ToolTip>
 				</div>
 				<div className='absolute bottom-0 hazardous-waste-bin'>
-					<img
-						src={HazardousWasteBin}
-						alt='Hazardous Waste Bin'
-						className='w-32 h-32'
-					/>
+					<ToolTip
+						content='Hazardous Waste Bin'
+						direction='top'>
+						<img
+							src={HazardousWasteBin}
+							alt='Hazardous Waste Bin'
+							className='w-32 h-32'
+						/>
+					</ToolTip>
 				</div>
 				<div className='absolute bottom-0 recycle-bin'>
-					<img
-						src={RecycleBin}
-						alt='Recycle Bin'
-						className='w-32 h-32'
-					/>
+					<ToolTip
+						content='Recycle Bin'
+						direction='top'>
+						<img
+							src={RecycleBin}
+							alt='Recycle Bin'
+							className='w-32 h-32'
+						/>
+					</ToolTip>
 				</div>
 				<div className='absolute bottom-0 compost-bin'>
-					<img
-						src={CompostBin}
-						alt='Compost Bin'
-						className='w-32 h-32'
-					/>
+					<ToolTip
+						content='Compost Bin'
+						direction='top'>
+						<img
+							src={CompostBin}
+							alt='Compost Bin'
+							className='w-32 h-32'
+						/>
+					</ToolTip>
 				</div>
-
-				{/* <div className='ground'>
-					<div className='w-'>Plants</div>
-					<div>Tree</div>
-				</div> */}
 			</div>
 		</div>
 	);

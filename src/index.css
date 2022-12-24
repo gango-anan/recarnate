@@ -28,6 +28,10 @@
 :root {
 	font-family: 'Clash Display', sans-serif;
 	overflow: hidden;
+	--tooltip-text-color: white;
+	--tooltip-background-color: black;
+	--tooltip-margin: 30px;
+	--tooltip-arrow-size: 6px;
 }
 
 .landing-page-heading,
