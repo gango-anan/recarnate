@@ -26,3 +26,8 @@
 .game-play-button {
 	box-shadow: 8px 8px 0px #fea302, inset 4px 4px 4px rgba(255, 238, 181, 0.32);
 }
+
+.game-sound-button {
+	box-shadow: 1px 2px 0px #83154a,
+		inset 1.90826px 1.90826px 1.90826px rgba(255, 238, 181, 0.32);
+}
