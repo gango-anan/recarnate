@@ -18,7 +18,7 @@ const GameBoard = () => {
 		<div className='game-container w-screen h-screen'>
 			<div className='game-inner-container w-100 h-screen relative'>
 				<div className='absolute w-screen flex justify-end gap-10 px-20 py-5'>
-					<span className='w-16 h-16'>
+					<span>
 						<GameCommandButton {...gameInfoBtn} />
 					</span>
 					<span>
