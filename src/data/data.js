@@ -8,6 +8,7 @@ import RandomizeIcon from './images/RandomizeIcon.svg';
 import RecycleBinIcon from './images/RecycleBinIcon.svg';
 import RepurposeBoxIcon from './images/RepurposeBoxIcon.svg';
 import SuccessIcon from './images/SuccessIcon.svg';
+import SoundIcon from './images/SoundIcon.svg';
 
 export const disposalMethods = [
 	{
@@ -78,6 +79,12 @@ export const gameButtonDetails = {
 		btnColor: 'bg-recarnate-secondary-300',
 		btnShadow: 'game-play-button',
 		btnInfo: 'Play game',
+	},
+	soundBtn: {
+		icon: SoundIcon,
+		btnColor: 'bg-recarnate-purple',
+		btnShadow: 'game-sound-button',
+		btnInfo: 'Turn on sound',
 	},
 };
 

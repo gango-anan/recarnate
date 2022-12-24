@@ -5,6 +5,8 @@ module.exports = {
 		extend: {
 			backgroundImage: {
 				'landing-page': "url('/src/data/images/bg_landing_page.svg')",
+				road: "url('/src/data/images/Road.svg')",
+				'game-board': 'url(/src/data/images/bg_game_board.svg)',
 			},
 			backgroundColor: {
 				'modal-background': 'rgba(0, 0, 0, 0.7)',
@@ -13,6 +15,7 @@ module.exports = {
 				'recarnate-primary-400': '#158315',
 				'recarnate-secondary-400': '#FFB703',
 				'recarnate-secondary-500': '#FEA302',
+				'recarnate-purple': '#b51d78',
 			},
 			colors: {
 				'recarnate-neutral-800': '#2A1C02',
@@ -22,6 +25,11 @@ module.exports = {
 			height: {
 				360: '360px',
 				336: '336px',
+			},
+			spacing: {
+				'recarnate-1024': '21rem',
+				'recarnate-1280': '270px',
+				'recarnate-101': '128px',
 			},
 		},
 	},
