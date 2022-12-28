@@ -1,58 +1,37 @@
 .game-container {
-	background: linear-gradient(
-		143.5deg,
-		rgba(21, 131, 21, 0.64) 46.61%,
-		rgba(255, 205, 41, 0.64) 65.28%
-	);
-}
-
-.game-inner-container {
-	background: linear-gradient(
-			180deg,
-			rgba(21, 131, 21, 0.72) 11.82%,
-			rgba(98, 214, 7, 0.72) 63.69%
-		),
-		rgba(255, 255, 255, 0.01);
-	-webkit-backdrop-filter: blur(8px);
-	backdrop-filter: blur(8px);
+	overflow: hidden;
 }
 
 .bulk-pickup-track {
-	top: 40%;
-	left: 78%;
+	top: 31%;
+	left: 69%;
 	z-index: 10;
 }
 
 .road {
 	top: 40%;
-	left: 0;
+	left: 0px;
 }
 
-.repurpose-box {
-	left: 10%;
+.item-picker {
+	left: 8%;
+	top: 12%;
+	background: rgba(72, 48, 4, 0.48);
+	border: 2px solid #ffffff;
+	border-radius: 8px;
 }
 
-.trash-bin {
-	left: 28%;
-}
-
-.hazardous-waste-bin {
-	left: 45%;
-}
-
-.recycle-bin {
-	right: 28%;
-}
-
-.compost-bin {
-	right: 10%;
-}
-
-.ground-flower-tree {
-	left: -27.15%;
-	right: 12.26%;
-	top: 98.13%;
-	bottom: 1.87%;
-	border: 1.09965px solid #2c3826;
+.ground {
+	border: 1.1px solid #2c3826;
 	transform: matrix(1, 0, 0.01, 1, 0, 0);
+}
+
+.tree {
+	left: 56%;
+	max-width: 55px;
+}
+
+.flower {
+	left: 8%;
+	max-width: 65px;
 }

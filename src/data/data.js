@@ -9,6 +9,8 @@ import RecycleBinIcon from './images/RecycleBinIcon.svg';
 import RepurposeBoxIcon from './images/RepurposeBoxIcon.svg';
 import SuccessIcon from './images/SuccessIcon.svg';
 import SoundIcon from './images/SoundIcon.svg';
+import TrashBinIcon from './images/TrashBinIcon.svg';
+import SearchBtnIcon from './images/SearchButtonIcon.svg';
 
 export const disposalMethods = [
 	{
@@ -40,6 +42,12 @@ export const disposalMethods = [
 		description:
 			'Repurposing is the process by which an object with one use value is transformed or redeployed as an object with an alternative use value.',
 		icon: RepurposeBoxIcon,
+	},
+	{
+		name: 'Trash',
+		description:
+			'Trashing is the process by which an object with one use value is transformed or redeployed as an object with an alternative use value.',
+		icon: TrashBinIcon,
 	},
 ];
 
@@ -85,6 +93,12 @@ export const gameButtonDetails = {
 		btnColor: 'bg-recarnate-purple',
 		btnShadow: 'game-sound-button',
 		btnInfo: 'Turn on sound',
+	},
+	searchBtn: {
+		icon: SearchBtnIcon,
+		btnColor: 'recarnate-primary-400',
+		btnShadow: 'search-button',
+		btnInfo: 'Search item',
 	},
 };
 

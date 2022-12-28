@@ -14,8 +14,9 @@
 }
 
 .randomize-button {
-	box-shadow: 0.740741px 1.48148px 0px #015401,
-		inset 1.41352px 1.41352px 1.41352px rgba(255, 238, 181, 0.32);
+	background: #1d87b5;
+	box-shadow: 1px 2px 0px #155583,
+		inset 1.90826px 1.90826px 1.90826px rgba(255, 238, 181, 0.32);
 }
 
 .game-info-button {
@@ -29,5 +30,10 @@
 
 .game-sound-button {
 	box-shadow: 1px 2px 0px #83154a,
+		inset 1.90826px 1.90826px 1.90826px rgba(255, 238, 181, 0.32);
+}
+
+.search-button {
+	box-shadow: 1px 2px 0px #015401,
 		inset 1.90826px 1.90826px 1.90826px rgba(255, 238, 181, 0.32);
 }

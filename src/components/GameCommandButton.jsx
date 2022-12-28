@@ -11,7 +11,7 @@ const GameCommandButton = ({
 	return (
 		<button
 			onClick={closeModal}
-			className={`${btnColor} rounded-full ${btnShadow} w-12 h-12 p-3 flex items-center justify-center`}>
+			className={`${btnColor} rounded-full ${btnShadow} w-14 h-14 flex items-center justify-center`}>
 			<img
 				src={icon}
 				alt={btnInfo}
