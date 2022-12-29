@@ -4,7 +4,7 @@ module.exports = {
 	theme: {
 		extend: {
 			backgroundImage: {
-				'landing-page': "url('/src/data/images/bg_landing_page.svg')",
+				'landing-page': "url('/src/data/images/bg_image_landing_page.svg')",
 				'game-board': 'url(/src/data/images/bg_game_page.jpg)',
 			},
 			backgroundColor: {
@@ -15,8 +15,11 @@ module.exports = {
 				'recarnate-secondary-400': '#FFB703',
 				'recarnate-secondary-500': '#FEA302',
 				'recarnate-purple': '#b51d78',
+				'recarnate-bg': '#F9F2E7',
 			},
 			colors: {
+				'recarnate-neutral-200': '#D8D3C6',
+				'recarnate-neutral-700': '#483004',
 				'recarnate-neutral-800': '#2A1C02',
 				'recarnate-primary-font-500': '#015401',
 				'recarnate-secondary-font-500': '#fea302',

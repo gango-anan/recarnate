@@ -16,24 +16,24 @@ const LandingPage = () => {
 		setStatus({ showModal: false });
 	};
 	return (
-		<div className='relative w-screen h-screen bg-landing-page bg-no-repeat bg-cover bg-center'>
+		<div className='relative w-screen h-screen bg-recarnate-bg pb-40'>
 			<GameTutorialModal
 				status={status}
 				closeModal={closeModal}
 			/>
 			<header className='flex justify-between items-center px-12 py-5'>
-				<div className='h-12 w-48'>
+				<div className='w-48'>
 					<img
 						src={Logo}
 						alt='Logo'
 						className='w-full h-auto'
 					/>
 				</div>
-				<div className='ml-4'>
+				<div>
 					<button
 						className='flex items-center'
 						onClick={openModal}>
-						<span className='w-8 h-8'>
+						<span className='w-8'>
 							{' '}
 							<img
 								src={HowToPlayPrompt}
@@ -41,16 +41,18 @@ const LandingPage = () => {
 								className='w-full h-auto'
 							/>
 						</span>
-						<span className='ml-2 text-white text-sm'>How to play</span>
+						<span className='ml-2 text-recarnate-neutral-800 font-bold text-xl'>
+							How to play
+						</span>
 					</button>
 				</div>
 			</header>
-			<main className='mt-10'>
-				<section className='px-12 custom-width'>
-					<h4 className='landing-page-heading text-4xl text-white'>
+			<main className='h-full bg-landing-page bg-contain bg-no-repeat bg-bottom'>
+				<section className='pt-10 px-12 custom-width'>
+					<h4 className='landing-page-heading text-4xl font-bold text-recarnate-neutral-700'>
 						Sorting Items for Disposal has Never Been More Fun
 					</h4>
-					<p className='landing-description text-white text-base mt-3'>
+					<p className='landing-description text-recaarnate-neutral-700 text-xl font-medium mt-3'>
 						Recarnate teaches you about waste management methods through an
 						interactive e&#45;learning platform where consumers decide an
 						item&apos;s fate&#59; death or recarnation
@@ -70,7 +72,7 @@ const LandingPage = () => {
 					</div>
 				</section>
 			</main>
-			<footer className='bg-recarnate-primary-400 w-full fixed left-0 bottom-0 text-white flex justify-between items-center px-12 py-5 text-sm'>
+			<footer className='bg-recarnate-primary-400 w-full text-recarnate-neutral-200 font-medium text-lg fixed left-0 bottom-0 flex justify-between items-center px-12 py-5'>
 				<nav className='flex justify-between gap-10'>
 					<p>
 						<Link to='/info'>Info Bank</Link>
