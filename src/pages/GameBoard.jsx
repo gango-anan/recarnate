@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DisposalBin from '../components/DisposalBin';
 import GameCommandButton from '../components/GameCommandButton';
 import ToolTip from './ToolTip';
@@ -9,6 +9,7 @@ import TreeIcon from '../data/images/TreeIcon.svg';
 import FlowerIcon from '../data/images/FlowerIcon.svg';
 import Logo from '../data/images/Logo.svg';
 import GasCylinder from '../data/images/GasCylinder.svg';
+import ItemsCarousel from './ItemsCarousel';
 
 const GameBoard = () => {
 	const { gameInfoBtn, randomizeBtn, soundBtn, failureBtn, searchBtn } =
@@ -23,24 +24,40 @@ const GameBoard = () => {
 		trashBin,
 	] = disposalMethods;
 
+	const [isCarouselOpen, setIsCarouselOpen] = useState(false);
+	const openCarousel = () => {
+		setIsCarouselOpen(true);
+	};
+	const closeCarousel = () => {
+		setIsCarouselOpen(false);
+	};
+
 	return (
 		<div className='game-container w-screen h-screen relative bg-game-board bg-center bg-cover bg-no-repeat '>
 			<div className='w-full absolute flex justify-between px-12 py-5'>
 				<div className='h-12 w-48'>
-					<img
-						src={Logo}
-						alt='Logo'
-						className='w-full h-auto'
-					/>
+					{!isCarouselOpen && (
+						<img
+							src={Logo}
+							alt='Logo'
+							className='w-full h-auto'
+						/>
+					)}
 				</div>
+
 				<div className='flex justify-end gap-10'>
-					<ToolTip
-						content='Search'
-						direction='bottom'>
-						<span>
-							<GameCommandButton {...searchBtn} />
-						</span>
-					</ToolTip>
+					{!isCarouselOpen && (
+						<ToolTip
+							content='Search'
+							direction='bottom'>
+							<span>
+								<GameCommandButton
+									{...searchBtn}
+									closeModal={openCarousel}
+								/>
+							</span>
+						</ToolTip>
+					)}
 					<ToolTip
 						content='Game Info'
 						direction='bottom'>
@@ -71,6 +88,9 @@ const GameBoard = () => {
 					</ToolTip>
 				</div>
 			</div>
+			<div className='items-carousel-container w-1/2 absolute'>
+				{isCarouselOpen && <ItemsCarousel closeCarousel={closeCarousel} />}
+			</div>
 			<div className='absolute bulk-pickup-track max-w-280'>
 				<DisposalBin
 					content={`${bulkPickup.name} Truck`}
@@ -85,14 +105,16 @@ const GameBoard = () => {
 					className='w-screen'
 				/>
 			</div>
-			<div className='absolute item-picker w-36 h-36 flex flex-col items-center justify-center'>
-				<img
-					src={GasCylinder}
-					alt='item'
-					className='w-100 h-auto'
-				/>
-				<span className='text-white text-base'>Gas Cylinder</span>
-			</div>
+			{!isCarouselOpen && (
+				<div className='absolute item-picker w-36 h-36 flex flex-col items-center justify-center'>
+					<img
+						src={GasCylinder}
+						alt='item'
+						className='w-100 h-auto'
+					/>
+					<span className='text-white text-base'>Gas Cylinder</span>
+				</div>
+			)}
 			<div className='w-full flex justify-between absolute bottom-3 left-0'>
 				<div className='repurpose-box w-1/4 mx-auto'>
 					<div className='w-3/4 -mt-10'>
