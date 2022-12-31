@@ -11,6 +11,25 @@ import SuccessIcon from './images/SuccessIcon.svg';
 import SoundIcon from './images/SoundIcon.svg';
 import TrashBinIcon from './images/TrashBinIcon.svg';
 import SearchBtnIcon from './images/SearchButtonIcon.svg';
+import Apple from './images/ItemApple.svg';
+import Battery from './images/ItemBattery.svg';
+import DisposableCoffeCup from './images/ItemDisposableCoffeeCup.svg';
+import GasCylinder from './images/ItemGasCylinder.svg';
+import Microwave from './images/ItemMicrowave.svg';
+import PaperCoffeeFilter from './images/ItemPaperCoffeeFilter.svg';
+import PaperPlateClean from './images/ItemPaperPlate-Clean.svg';
+import PaperPlateDirty from './images/ItemPaperPlate-Dirty.svg';
+import PizzaBoxClean from './images/ItemPizzaBox-Clean.svg';
+import PizzaBoxDirty from './images/ItemPizzaBox-Dirty.svg';
+import PlasticBag from './images/ItemPlasticBag.svg';
+import Table from './images/ItemTable.svg';
+import TakeoutContainerClean from './images/ItemTakeoutContainer-Clean.svg';
+import TakeoutContainerDirty from './images/ItemTakeoutContainer-Dirty.svg';
+import Tire from './images/ItemTire.svg';
+import WaterBottleClean from './images/ItemWaterBottle-Clean.svg';
+import WaterBottleDirty from './images/ItemWaterBottle-Dirty.svg';
+import Wine from './images/ItemWine.svg';
+import WineBottle from './images/ItemWineBottle.svg';
 
 export const disposalMethods = [
 	{
@@ -101,6 +120,195 @@ export const gameButtonDetails = {
 		btnInfo: 'Search item',
 	},
 };
+
+export const disposalItems = [
+	{
+		id: 'item-6',
+		name: 'Microwave',
+		status: '',
+		disposalMethod: 'BulkPickUp',
+		recarnatesTo: ['Metal for circuitry'],
+		image: Microwave,
+	},
+	{
+		id: 'item-7',
+		name: 'Paper Coffee Filter',
+		status: '',
+		disposalMethod: 'Compost',
+		recarnatesTo: ['Fertilizer'],
+		image: PaperCoffeeFilter,
+	},
+	{
+		id: 'item-8',
+		name: 'Paper Plate',
+		status: 'clean',
+		disposalMethod: 'Recycle',
+		recarnatesTo: [
+			'Paper towels',
+			'Tissues',
+			'Printing paper',
+			'Writing paper',
+		],
+		image: PaperPlateClean,
+	},
+	{
+		id: 'item-9',
+		name: 'Paper Plate',
+		status: 'dirty',
+		disposalMethod: 'Trash',
+		recarnatesTo: ['Though correct, its 💀'],
+		image: PaperPlateDirty,
+	},
+	{
+		id: 'item-10',
+		name: 'Pizza Box',
+		status: 'clean',
+		disposalMethod: 'Recycle',
+		recarnatesTo: [
+			'Paper towels',
+			'Tissues',
+			'Printing paper',
+			'Writing paper',
+		],
+		image: PizzaBoxClean,
+	},
+	{
+		id: 'item-11',
+		name: 'Pizza Box',
+		status: 'clean',
+		disposalMethod: 'Repurpose',
+		recarnatesTo: ['Cat Bed'],
+		image: PizzaBoxClean,
+	},
+	{
+		id: 'item-12',
+		name: 'Pizza Box',
+		status: 'dirty',
+		disposalMethod: 'Trash',
+		recarnatesTo: ['Though correct, its 💀'],
+		image: PizzaBoxDirty,
+	},
+	{
+		id: 'item-13',
+		name: 'Plastic Bag',
+		status: '',
+		disposalMethod: 'Trash',
+		recarnatesTo: ['Though correct, its 💀'],
+		image: PlasticBag,
+	},
+	{
+		id: 'item-14',
+		name: 'Table',
+		status: '',
+		disposalMethod: 'BulkPickUp',
+		recarnatesTo: ['Reclaimed wood'],
+		image: Table,
+	},
+	{
+		id: 'item-15',
+		name: 'Takeout Container',
+		status: 'clean',
+		disposalMethod: 'Recycle',
+		recarnatesTo: ['Material for new containers'],
+		image: TakeoutContainerClean,
+	},
+	{
+		id: 'item-16',
+		name: 'Takeout Container',
+		status: 'dirty',
+		disposalMethod: 'Trash',
+		recarnatesTo: ['Though correct, its 💀'],
+		image: TakeoutContainerDirty,
+	},
+	{
+		id: 'item-17',
+		name: 'Tire',
+		status: '',
+		disposalMethod: 'BulkPickUp',
+		recarnatesTo: ['Rubber for tools '],
+		image: Tire,
+	},
+	{
+		id: 'item-18',
+		name: 'Water Bottle',
+		status: 'clean',
+		disposalMethod: 'Recycle',
+		recarnatesTo: ['Material for new containers '],
+		image: WaterBottleClean,
+	},
+	{
+		id: 'item-19',
+		name: 'Water Bottle',
+		status: 'dirty',
+		disposalMethod: 'Trash',
+		recarnatesTo: ['Though correct, its 💀'],
+		image: WaterBottleDirty,
+	},
+	{
+		id: 'item-20',
+		name: 'Wine',
+		status: '',
+		disposalMethod: '',
+		recarnatesTo: ['Fertilizer'],
+		image: Wine,
+	},
+	{
+		id: 'item-21',
+		name: 'Wine Bottle',
+		status: '',
+		disposalMethod: 'Recycle',
+		recarnatesTo: ['Material for new containers'],
+		image: WineBottle,
+	},
+	{
+		id: 'item-22',
+		name: 'Wine Bottle',
+		status: '',
+		disposalMethod: 'Repurpose',
+		recarnatesTo: ['Candle'],
+		image: WineBottle,
+	},
+	{
+		id: 'item-1',
+		name: 'Apple',
+		status: '',
+		disposalMethod: 'Compost',
+		recarnatesTo: ['Fertilizer'],
+		image: Apple,
+	},
+	{
+		id: 'item-2',
+		name: 'Lithium Battery',
+		status: '',
+		disposalMethod: 'HazardousWaste',
+		recarnatesTo: ['Critical cobalt', 'graphite', 'lithium minerals'],
+		image: Battery,
+	},
+	{
+		id: 'item-3',
+		name: 'Disposable Coffee Cup',
+		status: '',
+		disposalMethod: 'Trash',
+		recarnatesTo: ['Though correct, its 💀'],
+		image: DisposableCoffeCup,
+	},
+	{
+		id: 'item-4',
+		name: 'Gas Cylinder',
+		status: '',
+		disposalMethod: 'HazardousWaste',
+		recarnatesTo: ['Scrap Metal', 'Steel', 'Copper'],
+		image: GasCylinder,
+	},
+	{
+		id: 'item-5',
+		name: 'Gas Cylinder',
+		status: '',
+		disposalMethod: 'Repurpose',
+		recarnatesTo: ['Portable firepit', 'Stove'],
+		image: GasCylinder,
+	},
+];
 
 export const correctResponses = [{}];
 
