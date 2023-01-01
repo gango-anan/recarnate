@@ -27,6 +27,7 @@
 
 :root {
 	font-family: 'Clash Display', sans-serif;
+	font-size: 14px;
 	overflow: hidden;
 	--tooltip-text-color: white;
 	--tooltip-background-color: black;

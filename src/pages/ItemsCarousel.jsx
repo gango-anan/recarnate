@@ -1,11 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { disposalItems } from '../data/data';
 import closeButtonIcon from '../data/images/CancelIcon.svg';
 import '../styles/ItemsCarousel.css';
 
-const ItemsCarousel = ({ closeCarousel }) => {
+const ItemsCarousel = ({ closeCarousel, saveSelectedItem }) => {
 	const maxScrollWidth = useRef(0);
 	const [currentIndex, setCurrentIndex] = useState(0);
+	const [itemsToRender, setItemsToRender] = useState([...disposalItems]);
 	const carousel = useRef(null);
 
 	const movePrev = () => {
@@ -48,6 +49,14 @@ const ItemsCarousel = ({ closeCarousel }) => {
 			? carousel.current.scrollWidth - carousel.current.offsetWidth
 			: 0;
 	}, []);
+
+	const handleClick = (event) => {
+		const itemIndex = +event.target.getAttribute('data-item-index');
+		const item = itemsToRender.splice(itemIndex, 1);
+		saveSelectedItem(item);
+		setItemsToRender([...itemsToRender]);
+		closeCarousel();
+	};
 
 	return (
 		<div className='carousel my-2'>
@@ -108,28 +117,28 @@ const ItemsCarousel = ({ closeCarousel }) => {
 				</div>
 				<div
 					ref={carousel}
-					className='carousel-container relative flex gap-2 overflow-hidden scroll-smooth snap-x snap-mandatory touch-pan-x z-0 mx-11'>
-					{disposalItems.map((item, index) => {
+					className='carousel-container relative flex gap-4 overflow-hidden scroll-smooth snap-x snap-mandatory touch-pan-x z-0 mx-11'>
+					{itemsToRender.map((item, index) => {
 						return (
 							<div
 								key={`item-${index}`}
-								className='carousel-item text-center relative w-28 h-28 snap-start'>
-								<span
-									className='h-full w-full aspect-square block bg-origin-padding bg-center bg-contain bg-no-repeat z-0'
+								className='carousel-item text-center w-32 h-32 snap-start'>
+								<button
+									className='h-full w-full aspect-square block bg-origin-padding bg-center bg-contain bg-no-repeat z-0 relative'
 									style={{
 										backgroundImage: `url(${item.image || ''})`,
-									}}>
+									}}
+									data-item-index={`${index}`}
+									onClick={handleClick}>
 									<img
 										src={item.image || ''}
 										alt={item.name}
 										className='w-full aspect-square hidden'
 									/>
-								</span>
-								<span className='h-full w-full aspect-square block absolute top-0 left-0 transition-opacity duration-300 opacity-0 hover:opacity-100 z-10'>
-									<h3 className='text-white mx-auto text-xs tracking-widest'>
+									<div className='w-full text-white text-xs text-center tracking-wide absolute left-0 bottom-0'>
 										{item.name}
-									</h3>
-								</span>
+									</div>
+								</button>
 							</div>
 						);
 					})}

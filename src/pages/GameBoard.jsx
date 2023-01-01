@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import DisposalBin from '../components/DisposalBin';
 import GameCommandButton from '../components/GameCommandButton';
-import ToolTip from './ToolTip';
 import { disposalMethods, gameButtonDetails } from '../data/data';
-import Road from '../data/images/Road.svg';
-import '../styles/GameBoard.css';
-import TreeIcon from '../data/images/TreeIcon.svg';
 import FlowerIcon from '../data/images/FlowerIcon.svg';
 import Logo from '../data/images/Logo.svg';
-import GasCylinder from '../data/images/GasCylinder.svg';
+import Road from '../data/images/Road.svg';
+import TreeIcon from '../data/images/TreeIcon.svg';
+import '../styles/GameBoard.css';
 import ItemsCarousel from './ItemsCarousel';
+import ToolTip from './ToolTip';
 
 const GameBoard = () => {
 	const { gameInfoBtn, randomizeBtn, soundBtn, failureBtn, searchBtn } =
@@ -25,11 +24,16 @@ const GameBoard = () => {
 	] = disposalMethods;
 
 	const [isCarouselOpen, setIsCarouselOpen] = useState(false);
+	const [selectedItem, setSelectedItem] = useState([]);
 	const openCarousel = () => {
 		setIsCarouselOpen(true);
 	};
 	const closeCarousel = () => {
 		setIsCarouselOpen(false);
+	};
+
+	const saveSelectedItem = (item) => {
+		setSelectedItem(item);
 	};
 
 	return (
@@ -44,7 +48,6 @@ const GameBoard = () => {
 						/>
 					)}
 				</div>
-
 				<div className='flex justify-end gap-10'>
 					{!isCarouselOpen && (
 						<ToolTip
@@ -89,7 +92,12 @@ const GameBoard = () => {
 				</div>
 			</div>
 			<div className='items-carousel-container w-1/2 absolute'>
-				{isCarouselOpen && <ItemsCarousel closeCarousel={closeCarousel} />}
+				{isCarouselOpen && (
+					<ItemsCarousel
+						closeCarousel={closeCarousel}
+						saveSelectedItem={saveSelectedItem}
+					/>
+				)}
 			</div>
 			<div className='absolute bulk-pickup-track max-w-280'>
 				<DisposalBin
@@ -105,14 +113,14 @@ const GameBoard = () => {
 					className='w-screen'
 				/>
 			</div>
-			{!isCarouselOpen && (
+			{selectedItem.length > 0 && !isCarouselOpen && (
 				<div className='absolute item-picker w-36 h-36 flex flex-col items-center justify-center'>
 					<img
-						src={GasCylinder}
+						src={selectedItem[0].image}
 						alt='item'
 						className='w-100 h-auto'
 					/>
-					<span className='text-white text-base'>Gas Cylinder</span>
+					<span className='text-white text-sm'>{selectedItem[0].name}</span>
 				</div>
 			)}
 			<div className='w-full flex justify-between absolute bottom-3 left-0'>
