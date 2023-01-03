@@ -15,41 +15,57 @@
 	border-radius: 8px;
 }
 
-.bulk-pickup-track {
-	top: 31%;
-	left: 69%;
+.bulk-pickup-truck {
+	position: absolute;
+	top: 33%;
+	left: 71%;
 	z-index: 10;
+	max-width: 250px;
 }
 
 .repurpose-box {
+	position: absolute;
 	left: 10%;
 	bottom: 10%;
+	max-width: 200px;
 }
 
 .trash-bin {
+	position: absolute;
 	left: 48%;
+	bottom: 0.75rem;
+	max-width: 100px;
 }
 
 .recycle-bin {
+	position: absolute;
 	left: 60%;
+	bottom: 0.75rem;
+	max-width: 110px;
 }
 
 .hazardous-waste-bin {
+	position: absolute;
 	left: 72%;
+	bottom: 0.75rem;
+	max-width: 120px;
 }
 
 .compost-bin {
+	position: absolute;
 	left: 84%;
+	bottom: 0.75rem;
+	max-width: 130px;
 }
 
 .tree {
-	left: 56%;
-	max-width: 55px;
+	left: 55%;
+	max-width: 50px;
 }
 
 .flower {
 	left: 8%;
-	max-width: 65px;
+	max-width: 55px;
 }
 
 .ground {
