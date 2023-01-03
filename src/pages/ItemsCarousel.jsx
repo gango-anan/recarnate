@@ -5,9 +5,9 @@ import '../styles/ItemsCarousel.css';
 
 const ItemsCarousel = ({ closeCarousel, saveSelectedItem }) => {
 	const maxScrollWidth = useRef(0);
-	const [currentIndex, setCurrentIndex] = useState(0);
-	const [itemsToRender, setItemsToRender] = useState([...disposalItems]);
 	const carousel = useRef(null);
+	const [currentIndex, setCurrentIndex] = useState(0);
+	const itemsToRender = [...disposalItems];
 
 	const movePrev = () => {
 		if (currentIndex > 0) {
@@ -52,9 +52,8 @@ const ItemsCarousel = ({ closeCarousel, saveSelectedItem }) => {
 
 	const handleClick = (event) => {
 		const itemIndex = +event.target.getAttribute('data-item-index');
-		const item = itemsToRender.splice(itemIndex, 1);
+		const item = itemsToRender[itemIndex];
 		saveSelectedItem(item);
-		setItemsToRender([...itemsToRender]);
 		closeCarousel();
 	};
 
