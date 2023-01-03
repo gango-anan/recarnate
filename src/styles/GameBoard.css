@@ -2,12 +2,6 @@
 	overflow: hidden;
 }
 
-.bulk-pickup-track {
-	top: 31%;
-	left: 69%;
-	z-index: 10;
-}
-
 .road {
 	top: 40%;
 	left: 0px;
@@ -21,9 +15,31 @@
 	border-radius: 8px;
 }
 
-.ground {
-	border: 1.1px solid #2c3826;
-	transform: matrix(1, 0, 0.01, 1, 0, 0);
+.bulk-pickup-track {
+	top: 31%;
+	left: 69%;
+	z-index: 10;
+}
+
+.repurpose-box {
+	left: 10%;
+	bottom: 10%;
+}
+
+.trash-bin {
+	left: 48%;
+}
+
+.recycle-bin {
+	left: 60%;
+}
+
+.hazardous-waste-bin {
+	left: 72%;
+}
+
+.compost-bin {
+	left: 84%;
 }
 
 .tree {
@@ -34,4 +50,9 @@
 .flower {
 	left: 8%;
 	max-width: 65px;
+}
+
+.ground {
+	border: 1.1px solid #2c3826;
+	transform: matrix(1, 0, 0.01, 1, 0, 0);
 }
