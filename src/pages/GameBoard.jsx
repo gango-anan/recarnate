@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import DisposalBin from '../components/DisposalBin';
 import GameCommandButton from '../components/GameCommandButton';
 import { disposalMethods, gameButtonDetails } from '../data/data';
@@ -9,7 +9,6 @@ import TreeIcon from '../data/images/TreeIcon.svg';
 import '../styles/GameBoard.css';
 import ItemsCarousel from './ItemsCarousel';
 import ToolTip from './ToolTip';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 const GameBoard = () => {
 	const { gameInfoBtn, randomizeBtn, soundBtn, failureBtn, searchBtn } =
@@ -26,6 +25,26 @@ const GameBoard = () => {
 
 	const saveSelectedItem = (item) => {
 		setSelectedItem(item);
+	};
+
+	const dragItem = useRef();
+	const dragOverItem = useRef();
+
+	const dragStart = (e, position) => {
+		dragItem.current = position;
+	};
+
+	const dragEnter = (e, position) => {
+		e.preventDefault();
+		dragOverItem.current = position;
+	};
+
+	const drop = () => {
+		const sourceIndex = dragItem.current;
+		const destinationIndex = dragOverItem.current;
+		const dispoMethodSource = selectedItem.disposalMethod;
+		const dispoMethodDestination = disposalMethods[destinationIndex].name;
+		console.log(dispoMethodSource === dispoMethodDestination);
 	};
 
 	return (
@@ -98,62 +117,47 @@ const GameBoard = () => {
 					className='w-screen'
 				/>
 			</div>
-			<DragDropContext>
-				<Droppable droppableId='disposal-method'>
-					{(provided) => (
-						<div
-							{...provided.droppableProps}
-							ref={provided.innerRef}>
-							{selectedItem && !isCarouselOpen && (
-								<Draggable
-									key='selected-item'
-									draggableId='selected-item'
-									index={disposalMethods.length}>
-									{(provided) => (
-										<div
-											{...provided.draggableProps}
-											{...provided.dragHandleProps}
-											ref={provided.innerRef}
-											className='absolute item-picker w-36 h-36 flex flex-col items-center justify-center'>
-											<img
-												src={selectedItem.image}
-												alt='item'
-												className='w-100 h-auto'
-											/>
-											<span className='text-white text-sm'>
-												{selectedItem.name}
-											</span>
-										</div>
-									)}
-								</Draggable>
-							)}
 
-							{disposalMethods.map((method, index) => (
-								<Draggable
-									draggableId={method.id}
-									key={method.id}
-									index={index}
-									isDragDisabled>
-									{(provided) => (
-										<div
-											{...provided.draggableProps}
-											{...provided.dragHandleProps}
-											ref={provided.innerRef}
-											className={method.id}>
-											<DisposalBin
-												content={method.name}
-												direction='top'
-												icon={method.icon}
-											/>
-										</div>
-									)}
-								</Draggable>
-							))}
-							{provided.placeholder}
-						</div>
-					)}
-				</Droppable>
-			</DragDropContext>
+			<div>
+				{selectedItem && !isCarouselOpen && (
+					<div
+						className='absolute item-picker w-36 h-36 flex flex-col items-center justify-end'
+						onDragStart={(e) => dragStart(e, disposalMethods.length)}
+						onDragEnter={(e) => dragEnter(e, disposalMethods.length)}
+						onDragEnd={drop}
+						draggable
+						style={{
+							backgroundImage: `url(${selectedItem.image})`,
+							backgroundSize: 'contain',
+							backgroundRepeat: 'no-repeat',
+							backgroundPosition: 'center',
+						}}>
+						<img
+							src={selectedItem.image}
+							alt='item'
+							className='w-100 h-auto'
+							style={{ display: 'none' }}
+						/>
+						<span className='text-white text-sm'>{selectedItem.name}</span>
+					</div>
+				)}
+
+				{disposalMethods.map((method, index) => (
+					<div
+						className={method.id}
+						key={method.id}
+						onDragStart={(e) => dragStart(e, index)}
+						onDragEnter={(e) => dragEnter(e, index)}
+						onDragEnd={drop}>
+						<DisposalBin
+							content={method.name}
+							direction='top'
+							icon={method.icon}
+						/>
+					</div>
+				))}
+			</div>
+
 			<div className='w-full absolute bottom-5 left-0 -ml-32 ground'></div>
 			<div className='absolute bottom-4 tree'>
 				<img
