@@ -14,6 +14,7 @@ import '../styles/GameBoard.css';
 import ItemsCarousel from './ItemsCarousel';
 import ToolTip from './ToolTip';
 import DragChoicePopupModal from './DragChoicePopupModal';
+import GameTutorialModal from './GameTutorialModal';
 
 const GameBoard = () => {
 	const { gameInfoBtn, randomizeBtn, soundBtn, failureBtn, searchBtn } =
@@ -22,9 +23,18 @@ const GameBoard = () => {
 	const [selectedItem, setSelectedItem] = useState(null);
 	const [popupStatus, setPopupStatus] = useState(false);
 	const [dropChoice, updateDropChoice] = useState(null);
+	const [status, setStatus] = useState({
+		showModal: false,
+	});
 	const dragItem = useRef(null);
 	const dragOverItem = useRef(null);
 
+	const openModal = () => {
+		setStatus({ showModal: true });
+	};
+	const closeModal = () => {
+		setStatus({ showModal: false });
+	};
 	const randomIndexInRange = (min, max) => {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
 	};
@@ -57,6 +67,9 @@ const GameBoard = () => {
 		e.preventDefault();
 		dragOverItem.current = position;
 	};
+	const handleRandomization = () => {
+		setSelectedItem(generateRandomItem());
+	};
 	const drop = (e) => {
 		const sourceIndex = dragItem.current;
 		const destinationIndex = dragOverItem.current;
@@ -71,9 +84,6 @@ const GameBoard = () => {
 		dragItem.current = null;
 		dragOverItem.current = null;
 	};
-	const handleRandomization = () => {
-		setSelectedItem(generateRandomItem());
-	};
 
 	return (
 		<div className='game-container w-screen h-screen relative bg-game-board bg-center bg-cover bg-no-repeat '>
@@ -82,6 +92,10 @@ const GameBoard = () => {
 				closeChoiceModal={closeChoiceModal}
 				dropChoice={dropChoice}
 				selectedItem={selectedItem}
+			/>
+			<GameTutorialModal
+				status={status}
+				closeModal={closeModal}
 			/>
 			<div className='w-full absolute flex justify-between px-12 py-5'>
 				<div className='h-12 w-48'>
@@ -110,7 +124,10 @@ const GameBoard = () => {
 						content='Game Info'
 						direction='bottom'>
 						<span>
-							<GameCommandButton {...gameInfoBtn} />
+							<GameCommandButton
+								{...gameInfoBtn}
+								closeModal={openModal}
+							/>
 						</span>
 					</ToolTip>
 					<ToolTip
@@ -154,7 +171,6 @@ const GameBoard = () => {
 					className='w-screen'
 				/>
 			</div>
-
 			<div>
 				{selectedItem && !isCarouselOpen && (
 					<div
@@ -193,7 +209,6 @@ const GameBoard = () => {
 					</div>
 				))}
 			</div>
-
 			<div className='w-full absolute bottom-5 left-0 -ml-32 ground'></div>
 			<div className='absolute bottom-4 tree'>
 				<img

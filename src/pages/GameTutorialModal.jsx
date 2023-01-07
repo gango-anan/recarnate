@@ -7,7 +7,7 @@ const GameTutorialModal = ({ status, closeModal }) => {
 		return null;
 	}
 	return (
-		<div className='w-screen h-screen bg-modal-background z-10 fixed left-0 top-0'>
+		<div className='w-screen h-screen bg-modal-background z-30 fixed left-0 top-0'>
 			<GameTutorial closeModal={closeModal} />
 		</div>
 	);
