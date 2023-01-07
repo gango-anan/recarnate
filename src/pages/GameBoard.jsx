@@ -1,7 +1,11 @@
 import React, { useState, useRef } from 'react';
 import DisposalBin from '../components/DisposalBin';
 import GameCommandButton from '../components/GameCommandButton';
-import { disposalMethods, gameButtonDetails } from '../data/data';
+import {
+	disposalMethods,
+	gameButtonDetails,
+	disposalItems,
+} from '../data/data';
 import FlowerIcon from '../data/images/FlowerIcon.svg';
 import Logo from '../data/images/Logo.svg';
 import Road from '../data/images/Road.svg';
@@ -21,12 +25,19 @@ const GameBoard = () => {
 	const dragItem = useRef(null);
 	const dragOverItem = useRef(null);
 
+	const randomIndexInRange = (min, max) => {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	};
+	const generateRandomItem = () => {
+		const itemIndex = randomIndexInRange(0, disposalItems.length - 1);
+		return disposalItems[itemIndex];
+	};
 	const openChoiceModal = () => {
 		setPopupStatus(true);
 	};
 	const closeChoiceModal = () => {
 		if (dropChoice) {
-			setSelectedItem(null);
+			setSelectedItem(generateRandomItem());
 		}
 		setPopupStatus(false);
 	};
@@ -60,6 +71,9 @@ const GameBoard = () => {
 		dragItem.current = null;
 		dragOverItem.current = null;
 	};
+	const handleRandomization = () => {
+		setSelectedItem(generateRandomItem());
+	};
 
 	return (
 		<div className='game-container w-screen h-screen relative bg-game-board bg-center bg-cover bg-no-repeat '>
@@ -69,7 +83,6 @@ const GameBoard = () => {
 				dropChoice={dropChoice}
 				selectedItem={selectedItem}
 			/>
-
 			<div className='w-full absolute flex justify-between px-12 py-5'>
 				<div className='h-12 w-48'>
 					{!isCarouselOpen && (
@@ -104,7 +117,10 @@ const GameBoard = () => {
 						content='Random Item'
 						direction='bottom'>
 						<span>
-							<GameCommandButton {...randomizeBtn} />
+							<GameCommandButton
+								{...randomizeBtn}
+								closeModal={handleRandomization}
+							/>
 						</span>
 					</ToolTip>
 					<ToolTip
@@ -144,7 +160,6 @@ const GameBoard = () => {
 					<div
 						className='absolute item-picker w-36 h-36 flex flex-col items-center justify-end'
 						onDragStart={(e) => dragStart(e, disposalMethods.length)}
-						// onDragEnter={(e) => dragEnter(e, disposalMethods.length)}
 						onDragEnd={drop}
 						draggable
 						style={{
