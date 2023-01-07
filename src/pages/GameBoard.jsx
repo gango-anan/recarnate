@@ -17,7 +17,8 @@ const GameBoard = () => {
 
 	const [isCarouselOpen, setIsCarouselOpen] = useState(false);
 	const [selectedItem, setSelectedItem] = useState(null);
-	const [popupStatus, setPopupStatus] = useState(true);
+	const [popupStatus, setPopupStatus] = useState(false);
+	const [dropChoice, updateDropChoice] = useState(null);
 	const openChoiceModal = () => {
 		setPopupStatus(true);
 	};
@@ -36,8 +37,8 @@ const GameBoard = () => {
 		setSelectedItem(item);
 	};
 
-	const dragItem = useRef();
-	const dragOverItem = useRef();
+	const dragItem = useRef(null);
+	const dragOverItem = useRef(null);
 
 	const dragStart = (e, position) => {
 		dragItem.current = position;
@@ -48,20 +49,28 @@ const GameBoard = () => {
 		dragOverItem.current = position;
 	};
 
-	const drop = () => {
+	const drop = (e) => {
 		const sourceIndex = dragItem.current;
 		const destinationIndex = dragOverItem.current;
+		if (destinationIndex === null || sourceIndex === destinationIndex) {
+			return;
+		}
 		const dispoMethodSource = selectedItem.disposalMethod;
 		const dispoMethodDestination = disposalMethods[destinationIndex].name;
-		console.log(dispoMethodSource === dispoMethodDestination);
+		const isCorrectDispoMethod = dispoMethodSource === dispoMethodDestination;
+		updateDropChoice(isCorrectDispoMethod);
+		openChoiceModal();
+		dragItem.current = null;
+		dragOverItem.current = null;
 	};
 
 	return (
 		<div className='game-container w-screen h-screen relative bg-game-board bg-center bg-cover bg-no-repeat '>
 			<DragChoicePopupModal
 				popupStatus={popupStatus}
-				openChoiceModal={openChoiceModal}
 				closeChoiceModal={closeChoiceModal}
+				dropChoice={dropChoice}
+				selectedItem={selectedItem}
 			/>
 
 			<div className='w-full absolute flex justify-between px-12 py-5'>
@@ -138,7 +147,7 @@ const GameBoard = () => {
 					<div
 						className='absolute item-picker w-36 h-36 flex flex-col items-center justify-end'
 						onDragStart={(e) => dragStart(e, disposalMethods.length)}
-						onDragEnter={(e) => dragEnter(e, disposalMethods.length)}
+						// onDragEnter={(e) => dragEnter(e, disposalMethods.length)}
 						onDragEnd={drop}
 						draggable
 						style={{

@@ -3,8 +3,9 @@ import { ChoicePopup } from '../components/ChoicePopup';
 
 const DragChoicePopupModal = ({
 	popupStatus,
-	openChoiceModal,
 	closeChoiceModal,
+	dropChoice,
+	selectedItem,
 }) => {
 	const showChoiceModal = popupStatus;
 	if (!showChoiceModal) {
@@ -12,7 +13,10 @@ const DragChoicePopupModal = ({
 	}
 	return (
 		<div className='w-screen h-screen bg-modal-background z-20 fixed left-0 top-0 flex flex-col justify-center items-center'>
-			<ChoicePopup />
+			<ChoicePopup
+				dropChoice={dropChoice}
+				selectedItem={selectedItem}
+			/>
 		</div>
 	);
 };

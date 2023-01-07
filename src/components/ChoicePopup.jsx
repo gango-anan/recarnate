@@ -3,23 +3,32 @@ import '../styles/ChoicePopup.css';
 import CorrectChoiceIcon from '../data/images/SuccessIcon.svg';
 import IncorrectChoiceIcon from '../data/images/CancelIcon.svg';
 
-export const ChoicePopup = () => {
-	const recarnatesTo = [
-		'Paper towels',
-		'Tissues',
-		'Printing paper',
-		'Writing paper',
-	];
-	const statusbtnColor = 'bg-recarnate-failure';
-	const statusbtnShadow = 'incorrect-status-indicator-shadow';
-	const scrollBarDetails = 'incorrect-scrollbar';
-	const btnName = 'Try again';
-	const choiceTitle = 'Incorrect!';
-	const itemName = 'Lithium battery';
-	const ctaButtonStyles = 'failure-success-call-to-action-button';
-	const successActive = false;
-	const statusIcon = IncorrectChoiceIcon;
-	const popupDetailsContainerBg = 'incorrect-popup-details';
+export const ChoicePopup = ({ dropChoice, selectedItem }) => {
+	const { name, recarnatesTo } = selectedItem;
+	const disposalMethodChoice = dropChoice;
+	const itemName = name;
+	const statusbtnColor = disposalMethodChoice
+		? 'bg-recarnate-primary-300'
+		: 'bg-recarnate-failure';
+	const statusbtnShadow = disposalMethodChoice
+		? 'correct-status-indicator-shadow'
+		: 'incorrect-status-indicator-shadow';
+	const scrollBarDetails = disposalMethodChoice
+		? 'correct-scrollbar'
+		: 'incorrect-scrollbar';
+	const btnName = disposalMethodChoice ? 'Next' : 'Try again';
+	const choiceTitle = disposalMethodChoice ? 'Correct!' : 'Incorrect!';
+
+	const ctaButtonStyles = disposalMethodChoice
+		? 'success-call-to-action-button'
+		: 'failure-success-call-to-action-button';
+
+	const statusIcon = disposalMethodChoice
+		? CorrectChoiceIcon
+		: IncorrectChoiceIcon;
+	const popupDetailsContainerBg = disposalMethodChoice
+		? 'correct-popup-details'
+		: 'incorrect-popup-details';
 
 	return (
 		<div className='w-2/3 rounded-3xl'>
@@ -51,7 +60,7 @@ export const ChoicePopup = () => {
 					<h2 className='text-3xl text-recarnate-neutral-800 font-bold'>
 						{choiceTitle}
 					</h2>
-					{successActive ? (
+					{disposalMethodChoice ? (
 						<>
 							<h3 className='recarnate-neutral-800 text-xl'>
 								{itemName} recarnates 🌿 to:
@@ -69,19 +78,19 @@ export const ChoicePopup = () => {
 					) : (
 						<div>
 							<h3 className='recarnate-neutral-800 text-xl'>
-								Oops, that's a wrong way to dispose of this item.
+								Oops, that&#39;s a wrong way to dispose of this item.
 							</h3>
 						</div>
 					)}
 
 					<p className='recarnate-neutral-800 mt-5 text-justify'>
-						As a rule, harzadous and electronic wate shouldn’t be disposed of
-						along with household waste. H&E waste may contain haradous
+						As a rule, harzadous and electronic wate shouldn&#39;t be disposed
+						of along with household waste. H&E waste may contain haradous
 						substances which, if exposed, could cause a serious detrimental
-						effect on the environment, wildlife, and human health. If you’d like
-						to disposed electrical equipment for recycling, we recommend that
-						you take it to am authorised recycling collection point run by your
-						local authority.
+						effect on the environment, wildlife, and human health. If you&#39;d
+						like to disposed electrical equipment for recycling, we recommend
+						that you take it to am authorised recycling collection point run by
+						your local authority.
 					</p>
 					<h3 className='text-recarnate-neutral-800 text-lg font-bold tracking-wide my-2'>
 						How to dispose
@@ -90,19 +99,19 @@ export const ChoicePopup = () => {
 						Depending on where you are around the world, you can take it to a
 						special recycling center. If such centres are unavailable, keep your
 						H&E waste in a separate trash bag and inform your waste disposal
-						company of it’s content when they arrive.
+						company of it&#39;s content when they arrive.
 					</p>
 					<p className='text-recarnate-neutral-800 text-justify'>
 						Depending on where you are around the world, you can take it to a
 						special recycling center. If such centres are unavailable, keep your
 						H&E waste in a separate trash bag and inform your waste disposal
-						company of it’s content when they arrive.
+						company of it&#39;s content when they arrive.
 					</p>
 					<p className='text-recarnate-neutral-800 text-justify'>
 						Depending on where you are around the world, you can take it to a
 						special recycling center. If such centres are unavailable, keep your
 						H&E waste in a separate trash bag and inform your waste disposal
-						company of it’s content when they arrive.
+						company of it&#39;s content when they arrive.
 					</p>
 				</div>
 			</div>
