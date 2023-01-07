@@ -14,41 +14,38 @@ import DragChoicePopupModal from './DragChoicePopupModal';
 const GameBoard = () => {
 	const { gameInfoBtn, randomizeBtn, soundBtn, failureBtn, searchBtn } =
 		gameButtonDetails;
-
 	const [isCarouselOpen, setIsCarouselOpen] = useState(false);
 	const [selectedItem, setSelectedItem] = useState(null);
 	const [popupStatus, setPopupStatus] = useState(false);
 	const [dropChoice, updateDropChoice] = useState(null);
+	const dragItem = useRef(null);
+	const dragOverItem = useRef(null);
+
 	const openChoiceModal = () => {
 		setPopupStatus(true);
 	};
 	const closeChoiceModal = () => {
+		if (dropChoice) {
+			setSelectedItem(null);
+		}
 		setPopupStatus(false);
 	};
-
 	const openCarousel = () => {
 		setIsCarouselOpen(true);
 	};
 	const closeCarousel = () => {
 		setIsCarouselOpen(false);
 	};
-
 	const saveSelectedItem = (item) => {
 		setSelectedItem(item);
 	};
-
-	const dragItem = useRef(null);
-	const dragOverItem = useRef(null);
-
 	const dragStart = (e, position) => {
 		dragItem.current = position;
 	};
-
 	const dragEnter = (e, position) => {
 		e.preventDefault();
 		dragOverItem.current = position;
 	};
-
 	const drop = (e) => {
 		const sourceIndex = dragItem.current;
 		const destinationIndex = dragOverItem.current;

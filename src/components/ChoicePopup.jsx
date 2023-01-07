@@ -3,7 +3,7 @@ import '../styles/ChoicePopup.css';
 import CorrectChoiceIcon from '../data/images/SuccessIcon.svg';
 import IncorrectChoiceIcon from '../data/images/CancelIcon.svg';
 
-export const ChoicePopup = ({ dropChoice, selectedItem }) => {
+export const ChoicePopup = ({ dropChoice, selectedItem, closeChoiceModal }) => {
 	const { name, recarnatesTo } = selectedItem;
 	const disposalMethodChoice = dropChoice;
 	const itemName = name;
@@ -52,7 +52,8 @@ export const ChoicePopup = ({ dropChoice, selectedItem }) => {
 					</span>
 				</div>
 				<button
-					className={`absolute cta-button ${ctaButtonStyles} px-10 py-2 text-recarnate-neutral-100 text-lg font-semibold tracking-widest`}>
+					className={`absolute cta-button ${ctaButtonStyles} px-10 py-2 text-recarnate-neutral-100 text-lg font-semibold tracking-widest`}
+					onClick={closeChoiceModal}>
 					{btnName}
 				</button>
 				<div

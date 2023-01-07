@@ -16,6 +16,7 @@ const DragChoicePopupModal = ({
 			<ChoicePopup
 				dropChoice={dropChoice}
 				selectedItem={selectedItem}
+				closeChoiceModal={closeChoiceModal}
 			/>
 		</div>
 	);
