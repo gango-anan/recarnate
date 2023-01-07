@@ -15,6 +15,7 @@ import ItemsCarousel from './ItemsCarousel';
 import ToolTip from './ToolTip';
 import DragChoicePopupModal from './DragChoicePopupModal';
 import GameTutorialModal from './GameTutorialModal';
+import GameEndPromptModal from './GameEndPromptModal';
 
 const GameBoard = () => {
 	const { gameInfoBtn, randomizeBtn, soundBtn, failureBtn, searchBtn } =
@@ -26,6 +27,7 @@ const GameBoard = () => {
 	const [status, setStatus] = useState({
 		showModal: false,
 	});
+	const [isPromptOn, updateIsPromptOn] = useState(false);
 	const dragItem = useRef(null);
 	const dragOverItem = useRef(null);
 
@@ -70,6 +72,12 @@ const GameBoard = () => {
 	const handleRandomization = () => {
 		setSelectedItem(generateRandomItem());
 	};
+	const openGameExitPrompt = () => {
+		updateIsPromptOn(true);
+	};
+	const closeGameExitPrompt = () => {
+		updateIsPromptOn(false);
+	};
 	const drop = (e) => {
 		const sourceIndex = dragItem.current;
 		const destinationIndex = dragOverItem.current;
@@ -96,6 +104,10 @@ const GameBoard = () => {
 			<GameTutorialModal
 				status={status}
 				closeModal={closeModal}
+			/>
+			<GameEndPromptModal
+				closeGameExitPrompt={closeGameExitPrompt}
+				isPromptOn={isPromptOn}
 			/>
 			<div className='w-full absolute flex justify-between px-12 py-5'>
 				<div className='h-12 w-48'>
@@ -151,7 +163,10 @@ const GameBoard = () => {
 						content='Cancel Game'
 						direction='bottom'>
 						<span>
-							<GameCommandButton {...failureBtn} />
+							<GameCommandButton
+								{...failureBtn}
+								closeModal={openGameExitPrompt}
+							/>
 						</span>
 					</ToolTip>
 				</div>

@@ -26,6 +26,9 @@ module.exports = {
 				'recarnate-primary-font-500': '#015401',
 				'recarnate-secondary-font-500': '#fea302',
 			},
+			width: {
+				365: '365px',
+			},
 			height: {
 				360: '360px',
 				336: '336px',

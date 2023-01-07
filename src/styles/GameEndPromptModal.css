@@ -1,0 +1,18 @@
+.game-prompt-container {
+	background: rgba(250, 237, 237, 0.84);
+	box-shadow: 0px 12px 0px #e4b7b7;
+}
+
+.end-game-btn {
+	background: #f04b49;
+	border: 1px solid #f04b49;
+	box-shadow: 8px 8px 0px #da4b4b, inset 4px 4px 4px rgba(255, 238, 181, 0.32);
+	border-radius: 24px;
+}
+
+.continue-game-btn {
+	background: #1db51d;
+	border: 1px solid #1db51d;
+	box-shadow: 8px 8px 0px #158315, inset 4px 4px 4px rgba(255, 238, 181, 0.32);
+	border-radius: 24px;
+}
