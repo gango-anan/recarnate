@@ -1,0 +1,50 @@
+.incorrect-popup-details {
+	background: rgba(237, 250, 238, 0.84);
+	box-shadow: 0px -8.1076px 0.925633px #b7e4b7;
+	-webkit-backdrop-filter: blur(29.6203px);
+	backdrop-filter: blur(29.6203px);
+}
+
+.incorrect-popup-details {
+	background: rgba(250, 237, 237, 0.84);
+	box-shadow: 0px -11.1076px 0.925633px #e4b7b7;
+	-webkit-backdrop-filter: blur(29.6203px);
+	backdrop-filter: blur(29.6203px);
+}
+
+.recarnate-items {
+	background: rgba(255, 255, 255, 0.48);
+}
+
+.cta-button {
+	right: 18%;
+}
+
+.success-call-to-action-button {
+	background: #1db51d;
+	border: 1px solid #1db51d;
+	box-shadow: 8px 8px 0px #158315, inset 4px 4px 4px rgba(255, 238, 181, 0.32);
+	border-radius: 24px;
+	text-shadow: 0px 2px 1px rgba(42, 28, 2, 0.24);
+}
+
+.failure-success-call-to-action-button {
+	background: #f04b49;
+	border: 1px solid #f04b49;
+	box-shadow: 8px 8px 0px #da4b4b, inset 4px 4px 4px rgba(255, 238, 181, 0.32);
+	border-radius: 24px;
+}
+
+.status-indicator {
+	left: 4%;
+}
+
+.correct-status-indicator-shadow {
+	box-shadow: 1.43987px 2.87975px 0px #158315,
+		inset 2.74765px 2.74765px 2.74765px rgba(255, 238, 181, 0.32);
+}
+
+.incorrect-status-indicator-shadow {
+	box-shadow: 1.43987px 2.87975px 0px #da4b4b,
+		inset 2.74765px 2.74765px 2.74765px rgba(255, 238, 181, 0.32);
+}

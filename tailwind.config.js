@@ -10,6 +10,7 @@ module.exports = {
 			backgroundColor: {
 				'modal-background': 'rgba(0, 0, 0, 0.7)',
 				'recarnate-pink': '#FB5F5F',
+				'recarnate-failure': '#F04B49',
 				'recarnate-primary-300': '#1DB51D',
 				'recarnate-primary-400': '#158315',
 				'recarnate-secondary-400': '#FFB703',
@@ -18,6 +19,7 @@ module.exports = {
 				'recarnate-bg': '#F9F2E7',
 			},
 			colors: {
+				'recarnate-neutral-100': '#F9F2E7',
 				'recarnate-neutral-200': '#D8D3C6',
 				'recarnate-neutral-700': '#483004',
 				'recarnate-neutral-800': '#2A1C02',

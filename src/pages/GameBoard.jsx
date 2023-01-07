@@ -9,6 +9,7 @@ import TreeIcon from '../data/images/TreeIcon.svg';
 import '../styles/GameBoard.css';
 import ItemsCarousel from './ItemsCarousel';
 import ToolTip from './ToolTip';
+import DragChoicePopupModal from './DragChoicePopupModal';
 
 const GameBoard = () => {
 	const { gameInfoBtn, randomizeBtn, soundBtn, failureBtn, searchBtn } =
@@ -16,6 +17,14 @@ const GameBoard = () => {
 
 	const [isCarouselOpen, setIsCarouselOpen] = useState(false);
 	const [selectedItem, setSelectedItem] = useState(null);
+	const [popupStatus, setPopupStatus] = useState(true);
+	const openChoiceModal = () => {
+		setPopupStatus(true);
+	};
+	const closeChoiceModal = () => {
+		setPopupStatus(false);
+	};
+
 	const openCarousel = () => {
 		setIsCarouselOpen(true);
 	};
@@ -49,6 +58,12 @@ const GameBoard = () => {
 
 	return (
 		<div className='game-container w-screen h-screen relative bg-game-board bg-center bg-cover bg-no-repeat '>
+			<DragChoicePopupModal
+				popupStatus={popupStatus}
+				openChoiceModal={openChoiceModal}
+				closeChoiceModal={closeChoiceModal}
+			/>
+
 			<div className='w-full absolute flex justify-between px-12 py-5'>
 				<div className='h-12 w-48'>
 					{!isCarouselOpen && (
