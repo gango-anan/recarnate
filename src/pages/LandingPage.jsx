@@ -4,6 +4,7 @@ import HowToPlayPrompt from '../data/images/HowToPlayPrompt.png';
 import { Link } from 'react-router-dom';
 import PlayButtonIcon from '../data/images/PlayButtonIcon.svg';
 import GameTutorialModal from './GameTutorialModal';
+import '../styles/LandingPage.css';
 
 const LandingPage = () => {
 	const [status, setStatus] = React.useState({
@@ -59,7 +60,7 @@ const LandingPage = () => {
 					</p>
 					<div className='mt-16'>
 						<Link
-							className='bg-recarnate-secondary-400 text-recarnate-neutral-800 text-lg font-bold px-12 py-3 play-button flex items-center max-w-max gap-2'
+							className='bg-recarnate-secondary-400  px-8 py-5 play-button flex items-center max-w-max gap-4'
 							to='/game-board'>
 							<span>
 								<img
@@ -67,7 +68,9 @@ const LandingPage = () => {
 									alt='play game'
 								/>
 							</span>
-							<span>Play Sorting Game</span>
+							<span className='text-recarnate-neutral-800 text-2xl font-bold'>
+								Play Sorting Game
+							</span>
 						</Link>
 					</div>
 				</section>

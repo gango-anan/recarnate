@@ -3,6 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+	font-family: 'Clash Display', sans-serif;
+	font-size: 14px;
+	overflow: hidden;
+	--tooltip-text-color: white;
+	--tooltip-background-color: black;
+	--tooltip-margin: 30px;
+	--tooltip-arrow-size: 6px;
+}
+
 @layer utilities {
 	.scrollbar::-webkit-scrollbar {
 		width: 30px;
@@ -65,43 +75,6 @@
 	.incorrect-scrollbar::-webkit-scrollbar-thumb:hover {
 		background: #d33535;
 	}
-}
-
-:root {
-	font-family: 'Clash Display', sans-serif;
-	font-size: 14px;
-	overflow: hidden;
-	--tooltip-text-color: white;
-	--tooltip-background-color: black;
-	--tooltip-margin: 30px;
-	--tooltip-arrow-size: 6px;
-}
-
-.landing-page-heading,
-.landing-description {
-	font-style: normal;
-}
-
-.landing-page-heading {
-	font-weight: 700;
-	letter-spacing: 0.02em;
-	text-shadow: 0px 1.80769px 0.903846px rgba(42, 28, 2, 0.24),
-		0px 0px 43.3846px rgba(198, 216, 198, 0.72);
-}
-
-.landing-description {
-	font-weight: 500;
-	letter-spacing: 0.01em;
-}
-
-.custom-width {
-	max-width: 600px;
-}
-
-.play-button {
-	border: 1px solid #ffb703;
-	box-shadow: 8px 8px 0px #fea302, inset 4px 4px 4px rgba(255, 238, 181, 0.32);
-	border-radius: 24px;
 }
 
 .recarnate-secondary-gradient {
