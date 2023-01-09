@@ -1,10 +1,10 @@
 import React from 'react';
 import Logo from '../data/images/Logo.svg';
-import HowToPlayPrompt from '../data/images/HowToPlayPrompt.png';
 import { Link } from 'react-router-dom';
 import PlayButtonIcon from '../data/images/PlayButtonIcon.svg';
 import GameTutorialModal from './GameTutorialModal';
 import '../styles/LandingPage.css';
+import InfoIcon from '../data/images/InfoIcon.svg';
 
 const LandingPage = () => {
 	const [status, setStatus] = React.useState({
@@ -34,12 +34,12 @@ const LandingPage = () => {
 					<button
 						className='flex items-center'
 						onClick={openModal}>
-						<span className='w-8'>
+						<span className='how-to-play-icon rounded-full w-14 h-14 flex items-center justify-center'>
 							{' '}
 							<img
-								src={HowToPlayPrompt}
+								src={InfoIcon}
 								alt='Game tutorial'
-								className='w-full h-auto'
+								className=' h-auto'
 							/>
 						</span>
 						<span className='ml-2 text-recarnate-neutral-800 font-bold text-xl'>
