@@ -1,7 +1,7 @@
 import React from 'react';
 import ToolTip from '../pages/ToolTip';
 
-const DisposalBin = ({ content, direction, icon }) => {
+const DisposalBin = ({ content, direction, icon, index }) => {
 	return (
 		<ToolTip
 			content={content}
@@ -10,6 +10,7 @@ const DisposalBin = ({ content, direction, icon }) => {
 				src={icon}
 				alt={content}
 				className='max-w-full h-auto'
+				data-bin-index={`${index}`}
 			/>
 		</ToolTip>
 	);

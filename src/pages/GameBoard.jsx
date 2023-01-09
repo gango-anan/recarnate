@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import DisposalBin from '../components/DisposalBin';
 import GameCommandButton from '../components/GameCommandButton';
 import {
@@ -16,20 +16,26 @@ import ToolTip from './ToolTip';
 import DragChoicePopupModal from './DragChoicePopupModal';
 import GameTutorialModal from './GameTutorialModal';
 import GameEndPromptModal from './GameEndPromptModal';
+import { Draggable, Droppable } from '@syncfusion/ej2-base';
 
 const GameBoard = () => {
 	const { gameInfoBtn, randomizeBtn, soundBtn, failureBtn, searchBtn } =
 		gameButtonDetails;
 	const [isCarouselOpen, setIsCarouselOpen] = useState(false);
-	const [selectedItem, setSelectedItem] = useState(null);
+	const [selectedItem, setSelectedItem] = useState(disposalItems[14]);
+	const [forceRender, setForceRender] = useState(false);
 	const [popupStatus, setPopupStatus] = useState(false);
 	const [dropChoice, updateDropChoice] = useState(null);
 	const [status, setStatus] = useState({
 		showModal: false,
 	});
+
 	const [isPromptOn, updateIsPromptOn] = useState(false);
-	const dragItem = useRef(null);
-	const dragOverItem = useRef(null);
+	const [isSelectedItemVisible, updateSelectedItemVisibility] = useState(true);
+	const draggable = useRef(null);
+	const droppable = useRef(null);
+	const selectedItemRef = useRef();
+	selectedItemRef.current = selectedItem;
 
 	const openModal = () => {
 		setStatus({ showModal: true });
@@ -44,14 +50,20 @@ const GameBoard = () => {
 		const itemIndex = randomIndexInRange(0, disposalItems.length - 1);
 		return disposalItems[itemIndex];
 	};
+	const handleRandomization = () => {
+		setSelectedItem(generateRandomItem());
+	};
 	const openChoiceModal = () => {
 		setPopupStatus(true);
 	};
 	const closeChoiceModal = () => {
 		if (dropChoice) {
 			setSelectedItem(generateRandomItem());
+		} else {
+			setForceRender((prev) => !prev);
 		}
 		setPopupStatus(false);
+		toggleSelectedItemVisibility();
 	};
 	const openCarousel = () => {
 		setIsCarouselOpen(true);
@@ -62,36 +74,57 @@ const GameBoard = () => {
 	const saveSelectedItem = (item) => {
 		setSelectedItem(item);
 	};
-	const dragStart = (e, position) => {
-		dragItem.current = position;
-	};
-	const dragEnter = (e, position) => {
-		e.preventDefault();
-		dragOverItem.current = position;
-	};
-	const handleRandomization = () => {
-		setSelectedItem(generateRandomItem());
-	};
 	const openGameExitPrompt = () => {
 		updateIsPromptOn(true);
 	};
 	const closeGameExitPrompt = () => {
 		updateIsPromptOn(false);
 	};
-	const drop = (e) => {
-		const sourceIndex = dragItem.current;
-		const destinationIndex = dragOverItem.current;
-		if (destinationIndex === null || sourceIndex === destinationIndex) {
-			return;
-		}
-		const dispoMethodSource = selectedItem.disposalMethod;
-		const dispoMethodDestination = disposalMethods[destinationIndex].name;
-		const isCorrectDispoMethod = dispoMethodSource === dispoMethodDestination;
-		updateDropChoice(isCorrectDispoMethod);
-		openChoiceModal();
-		dragItem.current = null;
-		dragOverItem.current = null;
+	const toggleSelectedItemVisibility = () => {
+		updateSelectedItemVisibility((prevVisibility) => !prevVisibility);
 	};
+
+	useEffect(() => {
+		let tempHold = null;
+		const draggableElement = draggable.current;
+		const droppableElement = droppable.current;
+
+		const handleOver = (e) => {
+			tempHold = e.target;
+			tempHold.classList.add('zoom-droppable-container');
+		};
+		const handleOut = (e) => {
+			tempHold.classList.remove('zoom-droppable-container');
+			tempHold = null;
+		};
+		const handleDrop = (event) => {
+			const draggedItem = selectedItemRef.current;
+			let binIndex = null;
+			binIndex = +event.target.getAttribute('data-bin-index');
+			if (binIndex === null) {
+				return;
+			}
+
+			const selectedItemDispoMethod = draggedItem.disposalMethod;
+			const selectedBin = disposalMethods[binIndex].name;
+			const isCorrectDisposalMethod = selectedItemDispoMethod === selectedBin;
+			updateDropChoice(isCorrectDisposalMethod);
+			openChoiceModal();
+			toggleSelectedItemVisibility();
+			tempHold.classList.remove('zoom-droppable-container');
+		};
+
+		new Draggable(draggableElement, {
+			clone: false,
+			scope: 'items',
+		});
+		new Droppable(droppableElement, {
+			scope: 'items',
+			drop: handleDrop,
+			over: handleOver,
+			out: handleOut,
+		});
+	}, [selectedItem, forceRender]);
 
 	return (
 		<div className='game-container w-screen h-screen relative bg-game-board bg-center bg-cover bg-no-repeat '>
@@ -186,40 +219,41 @@ const GameBoard = () => {
 					className='w-screen'
 				/>
 			</div>
-			<div>
-				{selectedItem && !isCarouselOpen && (
-					<div
-						className='absolute item-picker w-36 h-36 flex flex-col items-center justify-end'
-						onDragStart={(e) => dragStart(e, disposalMethods.length)}
-						onDragEnd={drop}
-						draggable
-						style={{
-							backgroundImage: `url(${selectedItem.image})`,
-							backgroundSize: 'contain',
-							backgroundRepeat: 'no-repeat',
-							backgroundPosition: 'center',
-						}}>
-						<img
-							src={selectedItem.image}
-							alt='item'
-							className='w-100 h-auto'
-							style={{ display: 'none' }}
-						/>
-						<span className='text-white text-sm'>{selectedItem.name}</span>
-					</div>
-				)}
+			{!isCarouselOpen && isSelectedItemVisible && (
+				<div
+					className='absolute selected-item w-36 h-36 flex flex-col items-center justify-end'
+					style={{
+						backgroundImage: `url(${selectedItem.image})`,
+						backgroundSize: 'contain',
+						backgroundRepeat: 'no-repeat',
+						backgroundPosition: 'center',
+					}}
+					id='draggable-item'
+					ref={draggable}>
+					<span style={{ visibility: 'hidden', opacity: 0 }}>
+						{forceRender}
+					</span>
+					<img
+						src={selectedItem.image}
+						alt='item'
+						style={{ display: 'none' }}
+					/>
+					<span className='text-white text-sm'>{selectedItem.name}</span>
+				</div>
+			)}
 
+			<div
+				id='droppable-area'
+				ref={droppable}>
 				{disposalMethods.map((method, index) => (
 					<div
 						className={method.id}
-						key={method.id}
-						onDragStart={(e) => dragStart(e, index)}
-						onDragEnter={(e) => dragEnter(e, index)}
-						onDragEnd={drop}>
+						key={method.id}>
 						<DisposalBin
 							content={method.name}
 							direction='top'
 							icon={method.icon}
+							index={index}
 						/>
 					</div>
 				))}
