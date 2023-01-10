@@ -5,6 +5,7 @@ import PlayButtonIcon from '../data/images/PlayButtonIcon.svg';
 import GameTutorialModal from './GameTutorialModal';
 import '../styles/LandingPage.css';
 import InfoIcon from '../data/images/InfoIcon.svg';
+import MzCarnate from '../data/images/bg_mz_carnate.svg';
 
 const LandingPage = () => {
 	const [status, setStatus] = React.useState({
@@ -17,12 +18,12 @@ const LandingPage = () => {
 		setStatus({ showModal: false });
 	};
 	return (
-		<div className='relative w-screen h-screen bg-recarnate-bg pb-40'>
+		<div className='relative w-screen h-screen bg-recarnate-bg'>
 			<GameTutorialModal
 				status={status}
 				closeModal={closeModal}
 			/>
-			<header className='flex justify-between items-center px-12 py-5'>
+			<header className='flex justify-between items-center px-20 py-12'>
 				<div className='w-48'>
 					<img
 						src={Logo}
@@ -48,8 +49,8 @@ const LandingPage = () => {
 					</button>
 				</div>
 			</header>
-			<main className='h-full bg-landing-page bg-contain bg-no-repeat bg-bottom'>
-				<section className='pt-10 px-12 custom-width'>
+			<main>
+				<section className='pt-2 px-20 custom-width'>
 					<h4 className='landing-page-heading text-4xl font-bold text-recarnate-neutral-700'>
 						Sorting Items for Disposal has Never Been More Fun
 					</h4>
@@ -74,8 +75,17 @@ const LandingPage = () => {
 						</Link>
 					</div>
 				</section>
+				<div className='absolute right-20 top-36 mz-carnate'>
+					<img
+						src={MzCarnate}
+						alt='Mz Carnate'
+						className='w-full h-auto'
+					/>
+					<div className='w-full mz-carnate-bottom-line'></div>
+				</div>
+				<div className='absolute w-screen h-24 bg-landing-page-frame bg-contain left-0 bottom-20'></div>
 			</main>
-			<footer className='bg-recarnate-primary-400 w-full text-recarnate-neutral-200 font-medium text-lg fixed left-0 bottom-0 flex justify-between items-center px-12 py-5'>
+			<footer className='bg-recarnate-primary-400 w-full text-recarnate-neutral-200 font-medium text-lg fixed left-0 bottom-0 flex justify-between items-center px-20 py-5'>
 				<nav className='flex justify-between gap-10'>
 					<p>
 						<Link to='/info'>Info Bank</Link>

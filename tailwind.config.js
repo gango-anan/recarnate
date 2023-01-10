@@ -4,8 +4,9 @@ module.exports = {
 	theme: {
 		extend: {
 			backgroundImage: {
-				'landing-page': "url('/src/data/images/bg_image_landing_page.svg')",
 				'game-board': 'url(/src/data/images/bg_game_page.jpg)',
+				'landing-page-frame': 'url(/src/data/images/bg_home_page_frame.svg)',
+				'mz-carnate': 'url(/src/data/images/bg_mz_carnate.svg)',
 			},
 			backgroundColor: {
 				'modal-background': 'rgba(0, 0, 0, 0.7)',

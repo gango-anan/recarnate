@@ -49,3 +49,16 @@
 	background: #f8b40b;
 	box-shadow: inset 4px 4px 4px rgba(255, 238, 181, 0.32);
 }
+
+.mz-carnate {
+	width: 400px;
+
+	/* left: 736px;
+	top: 159px; */
+}
+
+.mz-carnate-bottom-line {
+	border-bottom: 2px solid #2a1c02;
+	/* background: #2a1c02;
+	transform: matrix(-1, 0, 0, 1, 0, 0); */
+}
