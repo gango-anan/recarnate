@@ -241,7 +241,6 @@ const GameBoard = () => {
 					<span className='text-white text-sm'>{selectedItem.name}</span>
 				</div>
 			)}
-
 			<div
 				id='droppable-area'
 				ref={droppable}>
