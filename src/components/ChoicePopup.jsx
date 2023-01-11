@@ -21,7 +21,7 @@ export const ChoicePopup = ({ dropChoice, selectedItem, closeChoiceModal }) => {
 
 	const ctaButtonStyles = disposalMethodChoice
 		? 'success-call-to-action-button'
-		: 'failure-success-call-to-action-button';
+		: 'failure-call-to-action-button';
 
 	const statusIcon = disposalMethodChoice
 		? CorrectChoiceIcon
@@ -52,7 +52,7 @@ export const ChoicePopup = ({ dropChoice, selectedItem, closeChoiceModal }) => {
 					</span>
 				</div>
 				<button
-					className={`absolute cta-button ${ctaButtonStyles} px-10 py-2 text-recarnate-neutral-100 text-lg font-semibold tracking-widest`}
+					className={`absolute cta-button ${ctaButtonStyles} px-8 py-3 text-recarnate-neutral-100 text-lg font-semibold tracking-widest`}
 					onClick={closeChoiceModal}>
 					{btnName}
 				</button>

@@ -28,11 +28,29 @@
 	text-shadow: 0px 2px 1px rgba(42, 28, 2, 0.24);
 }
 
-.failure-success-call-to-action-button {
+.success-call-to-action-button:hover {
+	background: #32d132;
+}
+
+.success-call-to-action-button:active {
+	background: #1da61d;
+	box-shadow: inset 4px 4px 4px rgba(255, 238, 181, 0.32);
+}
+
+.failure-call-to-action-button {
 	background: #f04b49;
 	border: 1px solid #f04b49;
 	box-shadow: 8px 8px 0px #da4b4b, inset 4px 4px 4px rgba(255, 238, 181, 0.32);
 	border-radius: 24px;
+}
+
+.failure-call-to-action-button:hover {
+	background: #fb6a6a;
+}
+
+.failure-call-to-action-button:active {
+	background: #f04b49;
+	box-shadow: inset 4px 4px 4px rgba(255, 238, 181, 0.32);
 }
 
 .status-indicator {
