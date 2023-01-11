@@ -262,14 +262,14 @@ const GameBoard = () => {
 				<img
 					src={TreeIcon}
 					alt='plant'
-					className='w-100 h-auto'
+					className='h-auto'
 				/>
 			</div>
 			<div className='absolute bottom-2 flower'>
 				<img
 					src={FlowerIcon}
 					alt='flower'
-					className='w-100 h-auto'
+					className='h-auto'
 				/>
 			</div>
 		</div>
