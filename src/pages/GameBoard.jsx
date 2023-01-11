@@ -221,7 +221,7 @@ const GameBoard = () => {
 			</div>
 			{!isCarouselOpen && isSelectedItemVisible && (
 				<div
-					className='absolute selected-item w-36 h-36 flex flex-col items-center justify-end'
+					className='absolute selected-item w-32 h-32 flex flex-col items-center justify-end'
 					style={{
 						backgroundImage: `url(${selectedItem.image})`,
 						backgroundSize: 'contain',
