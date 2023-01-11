@@ -34,56 +34,63 @@ export const ChoicePopup = ({ dropChoice, selectedItem, closeChoiceModal }) => {
 		<div className='w-2/3 rounded-3xl'>
 			<div
 				className={`${popupDetailsContainerBg} w-full py-8 relative rounded-3xl h-360`}>
-				<div
-					className={`absolute status-indicator ${statusbtnColor} rounded-full ${statusbtnShadow} p-3`}>
-					<span
-						style={{
-							backgroundImage: `url(${statusIcon})`,
-							backgroundSize: 'contain',
-							backgroundRepeat: 'no-repeat',
-							backgroundPosition: 'center',
-						}}
-						className='w-8 h-8 block'>
-						<img
-							src={statusIcon}
-							alt={choiceTitle}
-							style={{ display: 'none' }}
-						/>
-					</span>
-				</div>
-				<button
-					className={`absolute cta-button ${ctaButtonStyles} px-8 py-3 text-recarnate-neutral-100 text-lg font-semibold tracking-widest`}
-					onClick={closeChoiceModal}>
-					{btnName}
-				</button>
-				<div
-					className={`w-4/5 mx-auto h-full px-8 overflow-y-scroll ${scrollBarDetails}`}>
-					<h2 className='text-3xl text-recarnate-neutral-800 font-bold'>
-						{choiceTitle}
-					</h2>
-					{disposalMethodChoice ? (
-						<>
-							<h3 className='recarnate-neutral-800 text-xl'>
-								{itemName} recarnates 🌿 to:
-							</h3>
-							<div className='flex gap-3 my-4'>
-								{recarnatesTo.map((item) => (
-									<p
-										className='text-recarnate-neutral-800 text-sm px-4 py-1 rounded-3xl recarnate-items'
-										key={item}>
-										{item}
-									</p>
-								))}
-							</div>
-						</>
-					) : (
-						<div>
-							<h3 className='recarnate-neutral-800 text-xl'>
-								Oops, that&#39;s a wrong way to dispose of this item.
-							</h3>
+				<div className='w-full flex justify-between px-10'>
+					<div className='flex justify-center items-center gap-6'>
+						<div
+							className={`status-indicator ${statusbtnColor} ${statusbtnShadow} rounded-full flex items-center justify-center p-4`}>
+							<span
+								style={{
+									backgroundImage: `url(${statusIcon})`,
+									backgroundSize: 'contain',
+									backgroundRepeat: 'no-repeat',
+									backgroundPosition: 'center',
+								}}
+								className='w-9 h-9'>
+								<img
+									src={statusIcon}
+									alt={choiceTitle}
+									style={{ display: 'none' }}
+								/>
+							</span>
 						</div>
-					)}
-
+						<h2 className='text-3xl text-recarnate-neutral-800 font-bold'>
+							{choiceTitle}
+						</h2>
+					</div>
+					<div>
+						<button
+							className={`cta-button ${ctaButtonStyles} px-8 py-3 text-recarnate-neutral-100 text-lg font-semibold tracking-widest`}
+							onClick={closeChoiceModal}>
+							{btnName}
+						</button>
+					</div>
+				</div>
+				<div
+					className={`details-container mx-auto h-4/5 px-14 overflow-y-scroll ${scrollBarDetails} mt-2`}>
+					<div>
+						{disposalMethodChoice ? (
+							<>
+								<h3 className='recarnate-neutral-800 text-xl'>
+									{itemName} recarnates 🌿 to:
+								</h3>
+								<div className='flex gap-3 my-4'>
+									{recarnatesTo.map((item) => (
+										<p
+											className='text-recarnate-neutral-800 text-sm px-4 py-1 rounded-3xl recarnate-items'
+											key={item}>
+											{item}
+										</p>
+									))}
+								</div>
+							</>
+						) : (
+							<div>
+								<h3 className='recarnate-neutral-800 text-xl'>
+									Oops, that&#39;s a wrong way to dispose of this item.
+								</h3>
+							</div>
+						)}
+					</div>
 					<p className='recarnate-neutral-800 mt-5 text-justify'>
 						As a rule, harzadous and electronic wate shouldn&#39;t be disposed
 						of along with household waste. H&E waste may contain haradous
