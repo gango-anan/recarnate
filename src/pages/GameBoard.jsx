@@ -142,7 +142,7 @@ const GameBoard = () => {
 				closeGameExitPrompt={closeGameExitPrompt}
 				isPromptOn={isPromptOn}
 			/>
-			<div className='w-full absolute flex justify-between px-12 py-5'>
+			<div className='w-full absolute flex justify-between px-20 pt-10 pb-5'>
 				<div className='h-12 w-48'>
 					{!isCarouselOpen && (
 						<img
