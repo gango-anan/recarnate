@@ -18,6 +18,7 @@ module.exports = {
 				'recarnate-secondary-500': '#FEA302',
 				'recarnate-purple': '#b51d78',
 				'recarnate-bg': '#F9F2E7',
+				'recarnate-randomize': '#1d87b5',
 			},
 			colors: {
 				'recarnate-neutral-100': '#F9F2E7',

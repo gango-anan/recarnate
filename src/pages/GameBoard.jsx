@@ -19,7 +19,7 @@ import GameEndPromptModal from './GameEndPromptModal';
 import { Draggable, Droppable } from '@syncfusion/ej2-base';
 
 const GameBoard = () => {
-	const { gameInfoBtn, randomizeBtn, soundBtn, failureBtn, searchBtn } =
+	const { gameInfoBtn, randomizeBtn, soundBtn, cancelBtn, searchBtn } =
 		gameButtonDetails;
 	const [isCarouselOpen, setIsCarouselOpen] = useState(false);
 	const [selectedItem, setSelectedItem] = useState(disposalItems[14]);
@@ -197,7 +197,7 @@ const GameBoard = () => {
 						direction='bottom'>
 						<span>
 							<GameCommandButton
-								{...failureBtn}
+								{...cancelBtn}
 								closeModal={openGameExitPrompt}
 							/>
 						</span>

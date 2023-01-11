@@ -13,10 +13,24 @@
 		inset 2.9684px 2.9684px 2.9684px rgba(255, 238, 181, 0.32);
 }
 
-.randomize-button {
-	background: #1d87b5;
-	box-shadow: 1px 2px 0px #155583,
+.game-play-button {
+	box-shadow: 8px 8px 0px #fea302, inset 4px 4px 4px rgba(255, 238, 181, 0.32);
+}
+
+.search-button {
+	box-shadow: 1px 2px 0px #015401,
 		inset 1.90826px 1.90826px 1.90826px rgba(255, 238, 181, 0.32);
+}
+
+.search-button:hover {
+	background: #1db51d;
+	box-shadow: 1px 4px 0px #015401,
+		inset 1.90826px 1.90826px 1.90826px rgba(255, 238, 181, 0.32);
+}
+
+.search-button:active {
+	background: #158315;
+	box-shadow: inset 1.90826px 1.90826px 1.90826px rgba(255, 238, 181, 0.32);
 }
 
 .game-info-button {
@@ -24,8 +38,21 @@
 		inset 1.41352px 1.41352px 1.41352px rgba(255, 238, 181, 0.32);
 }
 
-.game-play-button {
-	box-shadow: 8px 8px 0px #fea302, inset 4px 4px 4px rgba(255, 238, 181, 0.32);
+.game-info-button:hover {
+}
+
+.game-info-button:active {
+}
+
+.randomize-button {
+	box-shadow: 1px 2px 0px #155583,
+		inset 1.90826px 1.90826px 1.90826px rgba(255, 238, 181, 0.32);
+}
+
+.randomize-button:hover {
+}
+
+.randomize-button:active {
 }
 
 .game-sound-button {
@@ -33,7 +60,19 @@
 		inset 1.90826px 1.90826px 1.90826px rgba(255, 238, 181, 0.32);
 }
 
-.search-button {
-	box-shadow: 1px 2px 0px #015401,
+.game-sound-button:hover {
+}
+
+.game-sound-button:active {
+}
+
+.game-cancel-button {
+	box-shadow: 1px 2px 0px #da4b4b,
 		inset 1.90826px 1.90826px 1.90826px rgba(255, 238, 181, 0.32);
+}
+
+.game-cancel-button:hover {
+}
+
+.game-cancel-button:active {
 }

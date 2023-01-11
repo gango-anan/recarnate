@@ -97,7 +97,7 @@ export const gameButtonDetails = {
 	},
 	randomizeBtn: {
 		icon: RandomizeIcon,
-		btnColor: 'bg-recarnate-primary-300',
+		btnColor: 'bg-recarnate-randomize',
 		btnShadow: 'randomize-button',
 		btnInfo: 'Pick random item',
 	},
@@ -124,6 +124,12 @@ export const gameButtonDetails = {
 		btnColor: 'recarnate-primary-400',
 		btnShadow: 'search-button',
 		btnInfo: 'Search item',
+	},
+	cancelBtn: {
+		icon: CancelIcon,
+		btnColor: 'bg-recarnate-failure',
+		btnShadow: 'game-cancel-button',
+		btnInfo: 'Cancel Game',
 	},
 };
 
