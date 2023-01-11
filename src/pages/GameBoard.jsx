@@ -17,6 +17,11 @@ import DragChoicePopupModal from './DragChoicePopupModal';
 import GameTutorialModal from './GameTutorialModal';
 import GameEndPromptModal from './GameEndPromptModal';
 import { Draggable, Droppable } from '@syncfusion/ej2-base';
+import ButtonClicked from '../data/audio/ButtonClicked.mp3';
+import Correct from '../data/audio/Correct.mp3';
+import Incorrect from '../data/audio/Incorrect.mp3';
+import ItemDragged from '../data/audio/ItemDraggedToWMT.mp3';
+import SoundOffIcon from '../data/images/SoundOff.svg';
 
 const GameBoard = () => {
 	const { gameInfoBtn, randomizeBtn, soundBtn, cancelBtn, searchBtn } =
@@ -25,6 +30,7 @@ const GameBoard = () => {
 	const [selectedItem, setSelectedItem] = useState(disposalItems[14]);
 	const [forceRender, setForceRender] = useState(false);
 	const [popupStatus, setPopupStatus] = useState(false);
+	const [isSoundOn, updateSoundOn] = useState(true);
 	const [dropChoice, updateDropChoice] = useState(null);
 	const [status, setStatus] = useState({
 		showModal: false,
@@ -36,12 +42,20 @@ const GameBoard = () => {
 	const droppable = useRef(null);
 	const selectedItemRef = useRef();
 	selectedItemRef.current = selectedItem;
+	const soundStatus = useRef();
+	soundStatus.current = isSoundOn;
 
-	const openModal = () => {
-		setStatus({ showModal: true });
+	const handleCorrectChoiceSound = () => {
+		new Audio(Correct).play();
 	};
-	const closeModal = () => {
-		setStatus({ showModal: false });
+	const handleInCorrectChoiceSound = () => {
+		new Audio(Incorrect).play();
+	};
+	const handleButtonClickedSound = () => {
+		new Audio(ButtonClicked).play();
+	};
+	const handleItemDraggedSound = () => {
+		new Audio(ItemDragged).play();
 	};
 	const randomIndexInRange = (min, max) => {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -50,8 +64,32 @@ const GameBoard = () => {
 		const itemIndex = randomIndexInRange(0, disposalItems.length - 1);
 		return disposalItems[itemIndex];
 	};
+
+	const openCarousel = () => {
+		isSoundOn && handleButtonClickedSound();
+		setIsCarouselOpen(true);
+	};
+	const closeCarousel = () => {
+		setIsCarouselOpen(false);
+	};
+	const openModal = () => {
+		isSoundOn && handleButtonClickedSound();
+		setStatus({ showModal: true });
+	};
+	const closeModal = () => {
+		setStatus({ showModal: false });
+	};
 	const handleRandomization = () => {
+		isSoundOn && handleButtonClickedSound();
 		setSelectedItem(generateRandomItem());
+	};
+	const toggleSound = () => {
+		isSoundOn && handleButtonClickedSound();
+		updateSoundOn((prev) => !prev);
+	};
+	const openGameExitPrompt = () => {
+		isSoundOn && handleButtonClickedSound();
+		updateIsPromptOn(true);
 	};
 	const openChoiceModal = () => {
 		setPopupStatus(true);
@@ -65,17 +103,8 @@ const GameBoard = () => {
 		setPopupStatus(false);
 		toggleSelectedItemVisibility();
 	};
-	const openCarousel = () => {
-		setIsCarouselOpen(true);
-	};
-	const closeCarousel = () => {
-		setIsCarouselOpen(false);
-	};
 	const saveSelectedItem = (item) => {
 		setSelectedItem(item);
-	};
-	const openGameExitPrompt = () => {
-		updateIsPromptOn(true);
 	};
 	const closeGameExitPrompt = () => {
 		updateIsPromptOn(false);
@@ -90,6 +119,8 @@ const GameBoard = () => {
 		const droppableElement = droppable.current;
 
 		const handleOver = (e) => {
+			const currentSoundStatus = soundStatus.current;
+			currentSoundStatus && handleItemDraggedSound();
 			tempHold = e.target;
 			tempHold.classList.add('zoom-droppable-container');
 		};
@@ -98,16 +129,21 @@ const GameBoard = () => {
 			tempHold = null;
 		};
 		const handleDrop = (event) => {
+			const currentSoundStatus = soundStatus.current;
 			const draggedItem = selectedItemRef.current;
 			let binIndex = null;
 			binIndex = +event.target.getAttribute('data-bin-index');
 			if (binIndex === null) {
 				return;
 			}
-
 			const selectedItemDispoMethod = draggedItem.disposalMethod;
 			const selectedBin = disposalMethods[binIndex].name;
 			const isCorrectDisposalMethod = selectedItemDispoMethod === selectedBin;
+			if (isCorrectDisposalMethod) {
+				currentSoundStatus && handleCorrectChoiceSound();
+			} else {
+				currentSoundStatus && handleInCorrectChoiceSound();
+			}
 			updateDropChoice(isCorrectDisposalMethod);
 			openChoiceModal();
 			toggleSelectedItemVisibility();
@@ -124,7 +160,7 @@ const GameBoard = () => {
 			over: handleOver,
 			out: handleOut,
 		});
-	}, [selectedItem, forceRender]);
+	}, [selectedItem, forceRender, isSoundOn]);
 
 	return (
 		<div className='game-container w-screen h-screen relative bg-game-board bg-center bg-cover bg-no-repeat '>
@@ -189,7 +225,11 @@ const GameBoard = () => {
 						content='Sound'
 						direction='bottom'>
 						<span>
-							<GameCommandButton {...soundBtn} />
+							<GameCommandButton
+								{...soundBtn}
+								closeModal={toggleSound}
+								icon={isSoundOn ? soundBtn.icon : SoundOffIcon}
+							/>
 						</span>
 					</ToolTip>
 					<ToolTip
