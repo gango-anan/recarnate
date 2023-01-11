@@ -39,9 +39,14 @@
 }
 
 .game-info-button:hover {
+	background: #ffc534;
+	box-shadow: 1px 4px 0px #fea302,
+		inset 1.90826px 1.90826px 1.90826px rgba(255, 238, 181, 0.32);
 }
 
 .game-info-button:active {
+	background: #ffb703;
+	box-shadow: inset 1.90826px 1.90826px 1.90826px rgba(255, 238, 181, 0.32);
 }
 
 .randomize-button {
@@ -50,9 +55,13 @@
 }
 
 .randomize-button:hover {
+	background: #4e9ec0;
+	box-shadow: 1px 4px 0px #155583,
+		inset 1.90826px 1.90826px 1.90826px rgba(255, 238, 181, 0.32);
 }
 
 .randomize-button:active {
+	box-shadow: inset 1.90826px 1.90826px 1.90826px rgba(255, 238, 181, 0.32);
 }
 
 .game-sound-button {
@@ -61,9 +70,13 @@
 }
 
 .game-sound-button:hover {
+	background: #b44186;
+	box-shadow: 1px 4px 0px #83154a,
+		inset 1.90826px 1.90826px 1.90826px rgba(255, 238, 181, 0.32);
 }
 
 .game-sound-button:active {
+	box-shadow: inset 1.90826px 1.90826px 1.90826px rgba(255, 238, 181, 0.32);
 }
 
 .game-cancel-button {
@@ -72,7 +85,11 @@
 }
 
 .game-cancel-button:hover {
+	background: #ec5e5c;
+	box-shadow: 1px 4px 0px #da4b4b,
+		inset 1.90826px 1.90826px 1.90826px rgba(255, 238, 181, 0.32);
 }
 
 .game-cancel-button:active {
+	box-shadow: inset 1.90826px 1.90826px 1.90826px rgba(255, 238, 181, 0.32);
 }
