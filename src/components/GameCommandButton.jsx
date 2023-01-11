@@ -13,7 +13,7 @@ const GameCommandButton = ({
 			onClick={closeModal}
 			className={`${btnColor} rounded-full ${btnShadow} flex items-center justify-center p-4`}>
 			<span
-				className='w-9 h-9'
+				className='w-8 h-8'
 				style={{
 					backgroundImage: `url(${icon})`,
 					backgroundSize: 'contain',
