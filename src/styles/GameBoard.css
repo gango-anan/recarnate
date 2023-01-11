@@ -40,39 +40,39 @@
 	position: absolute;
 	left: 10%;
 	bottom: 10%;
-	max-width: 200px;
+	max-width: 180px;
 }
 
 .trash-bin {
 	position: absolute;
 	left: 48%;
 	bottom: 0.75rem;
-	max-width: 100px;
+	max-width: 80px;
 }
 
 .recycle-bin {
 	position: absolute;
 	left: 60%;
 	bottom: 0.75rem;
-	max-width: 110px;
+	max-width: 90px;
 }
 
 .hazardous-waste-bin {
 	position: absolute;
 	left: 72%;
 	bottom: 0.75rem;
-	max-width: 120px;
+	max-width: 95px;
 }
 
 .compost-bin {
 	position: absolute;
 	left: 84%;
 	bottom: 0.75rem;
-	max-width: 130px;
+	max-width: 100px;
 }
 
 .tree {
-	left: 55%;
+	left: 54%;
 	max-width: 50px;
 }
 
