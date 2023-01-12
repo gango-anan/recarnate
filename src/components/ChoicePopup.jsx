@@ -31,7 +31,7 @@ export const ChoicePopup = ({ dropChoice, selectedItem, closeChoiceModal }) => {
 		: 'incorrect-popup-details';
 
 	return (
-		<div className='w-2/3 rounded-3xl'>
+		<div className='w-2/3 rounded-3xl drop-choice-popup-container'>
 			<div
 				className={`${popupDetailsContainerBg} w-full py-8 relative rounded-3xl h-360`}>
 				<div className='w-full flex justify-between px-10'>
@@ -59,7 +59,7 @@ export const ChoicePopup = ({ dropChoice, selectedItem, closeChoiceModal }) => {
 					</div>
 					<div>
 						<button
-							className={`cta-button ${ctaButtonStyles} px-8 py-3 text-recarnate-neutral-100 text-lg font-semibold tracking-widest`}
+							className={`cta-button ${ctaButtonStyles} px-8 py-3 text-recarnate-neutral-100 text-lg font-semibold tracking-widest rounded-3xl`}
 							onClick={closeChoiceModal}>
 							{btnName}
 						</button>
