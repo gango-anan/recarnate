@@ -9,7 +9,7 @@ const GameTutorial = ({ closeModal }) => {
 	const { btnColor, icon, btnShadow, btnInfo } = gameButtonDetails.closeBtn;
 	return (
 		<div className='w-1/2 mx-auto my-32 py-3 recarnate-secondary-gradient rounded-3xl h-360 relative'>
-			<div className='absolute -right-4 -top-4'>
+			<div className='absolute -right-4 -top-8'>
 				<GameCommandButton
 					closeModal={closeModal}
 					btnColor={btnColor}
