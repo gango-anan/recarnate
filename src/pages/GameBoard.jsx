@@ -268,7 +268,7 @@ const GameBoard = () => {
 			</div>
 			{!isCarouselOpen && isSelectedItemVisible && (
 				<div
-					className='absolute selected-item w-32 h-32 flex flex-col items-center justify-end'
+					className='absolute selected-item w-36 h-36'
 					style={{
 						backgroundImage: `url(${selectedItem.image})`,
 						backgroundSize: 'contain',
@@ -277,15 +277,18 @@ const GameBoard = () => {
 					}}
 					id='draggable-item'
 					ref={draggable}>
-					<span style={{ visibility: 'hidden', opacity: 0 }}>
-						{forceRender}
-					</span>
-					<img
-						src={selectedItem.image}
-						alt='item'
-						style={{ display: 'none' }}
-					/>
-					<span className='text-white text-sm'>{selectedItem.name}</span>
+					<div className='w-full h-full relative  flex flex-col items-center justify-end'>
+						<div className='w-full h-full absolute left-0 top-0 bg-transparent'></div>
+						<span style={{ visibility: 'hidden', opacity: 0 }}>
+							{forceRender}
+						</span>
+						<img
+							src={selectedItem.image}
+							alt='item'
+							style={{ display: 'none' }}
+						/>
+						<span className='text-white text-sm'>{selectedItem.name}</span>
+					</div>
 				</div>
 			)}
 			<div
