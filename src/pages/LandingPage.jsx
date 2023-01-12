@@ -50,18 +50,18 @@ const LandingPage = () => {
 				</div>
 			</header>
 			<main>
-				<section className='pt-2 px-20 custom-width'>
-					<h4 className='landing-page-heading text-4xl font-bold text-recarnate-neutral-700'>
+				<section className='pt-2 px-20 landing-page-description-area'>
+					<h4 className='text-4xl font-bold tracking-wide text-recarnate-neutral-700'>
 						Sorting Items for Disposal has Never Been More Fun
 					</h4>
-					<p className='landing-description text-recaarnate-neutral-700 text-xl font-medium mt-3'>
+					<p className='text-recaarnate-neutral-700 text-xl font-medium mt-3 tracking-wide'>
 						Recarnate teaches you about waste management methods through an
 						interactive e&#45;learning platform where consumers decide an
 						item&apos;s fate&#59; death or recarnation
 					</p>
 					<div className='mt-16'>
 						<Link
-							className='bg-recarnate-secondary-400  px-8 py-5 play-button flex items-center max-w-max gap-4'
+							className='bg-recarnate-secondary-400  px-8 py-5 rounded-3xl play-button flex items-center max-w-max gap-4'
 							to='/game-board'>
 							<span>
 								<img
@@ -87,9 +87,6 @@ const LandingPage = () => {
 			</main>
 			<footer className='bg-recarnate-primary-400 w-full text-recarnate-neutral-200 font-medium text-lg fixed left-0 bottom-0 flex justify-between items-center px-20 py-5'>
 				<nav className='flex justify-between gap-10'>
-					<p>
-						<Link to='/info'>Info Bank</Link>
-					</p>
 					<p>
 						<Link to='/about'>About Recarnate</Link>
 					</p>
