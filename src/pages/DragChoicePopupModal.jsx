@@ -6,6 +6,7 @@ const DragChoicePopupModal = ({
 	closeChoiceModal,
 	dropChoice,
 	selectedItem,
+	selectedDispoBin,
 }) => {
 	const showChoiceModal = popupStatus;
 	if (!showChoiceModal) {
@@ -17,6 +18,7 @@ const DragChoicePopupModal = ({
 				dropChoice={dropChoice}
 				selectedItem={selectedItem}
 				closeChoiceModal={closeChoiceModal}
+				selectedDispoBin={selectedDispoBin}
 			/>
 		</div>
 	);

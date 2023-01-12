@@ -3,8 +3,13 @@ import '../styles/ChoicePopup.css';
 import CorrectChoiceIcon from '../data/images/SuccessIcon.svg';
 import IncorrectChoiceIcon from '../data/images/CancelIcon.svg';
 
-export const ChoicePopup = ({ dropChoice, selectedItem, closeChoiceModal }) => {
-	const { name, recarnatesTo } = selectedItem;
+export const ChoicePopup = ({
+	dropChoice,
+	selectedItem,
+	closeChoiceModal,
+	selectedDispoBin,
+}) => {
+	const { name, itemDisposalMethods } = selectedItem;
 	const disposalMethodChoice = dropChoice;
 	const itemName = name;
 	const statusbtnColor = disposalMethodChoice
@@ -74,13 +79,15 @@ export const ChoicePopup = ({ dropChoice, selectedItem, closeChoiceModal }) => {
 									{itemName} recarnates 🌿 to:
 								</h3>
 								<div className='flex gap-3 my-4'>
-									{recarnatesTo.map((item) => (
-										<p
-											className='text-recarnate-neutral-800 text-sm px-4 py-1 rounded-3xl recarnate-items'
-											key={item}>
-											{item}
-										</p>
-									))}
+									{itemDisposalMethods[selectedDispoBin].recarnatesTo.map(
+										(item) => (
+											<p
+												className='text-recarnate-neutral-800 text-sm px-4 py-1 rounded-3xl recarnate-items'
+												key={item}>
+												{item}
+											</p>
+										)
+									)}
 								</div>
 							</>
 						) : (

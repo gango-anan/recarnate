@@ -44,6 +44,7 @@ const GameBoard = () => {
 	selectedItemRef.current = selectedItem;
 	const soundStatus = useRef();
 	soundStatus.current = isSoundOn;
+	const selectedDispoBin = useRef(null);
 
 	const handleCorrectChoiceSound = () => {
 		new Audio(Correct).play();
@@ -136,15 +137,16 @@ const GameBoard = () => {
 			if (binIndex === null) {
 				return;
 			}
-			const selectedItemDispoMethod = draggedItem.disposalMethod;
+			const selectedItemDispoMethods = draggedItem.itemDisposalMethods;
 			const selectedBin = disposalMethods[binIndex].name;
-			const isCorrectDisposalMethod = selectedItemDispoMethod === selectedBin;
-			if (isCorrectDisposalMethod) {
+			selectedDispoBin.current = selectedBin;
+			if (selectedBin in selectedItemDispoMethods) {
 				currentSoundStatus && handleCorrectChoiceSound();
+				updateDropChoice(true);
 			} else {
 				currentSoundStatus && handleInCorrectChoiceSound();
+				updateDropChoice(false);
 			}
-			updateDropChoice(isCorrectDisposalMethod);
 			openChoiceModal();
 			toggleSelectedItemVisibility();
 			tempHold.classList.remove('zoom-droppable-container');
@@ -169,6 +171,7 @@ const GameBoard = () => {
 				closeChoiceModal={closeChoiceModal}
 				dropChoice={dropChoice}
 				selectedItem={selectedItem}
+				selectedDispoBin={selectedDispoBin.current}
 			/>
 			<GameTutorialModal
 				status={status}
@@ -278,7 +281,7 @@ const GameBoard = () => {
 					id='draggable-item'
 					ref={draggable}>
 					<div className='w-full h-full relative  flex flex-col items-center justify-end'>
-						<div className='w-full h-full absolute left-0 top-0 bg-transparent'></div>
+						<div className='w-full h-full absolute left-0 top-0 bg-transparent z-10'></div>
 						<span style={{ visibility: 'hidden', opacity: 0 }}>
 							{forceRender}
 						</span>
