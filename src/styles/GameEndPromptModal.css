@@ -6,13 +6,30 @@
 .end-game-btn {
 	background: #f04b49;
 	border: 1px solid #f04b49;
+	box-shadow: 6px 6px 0px #da4b4b, inset 4px 4px 4px rgba(255, 238, 181, 0.32);
+}
+.end-game-btn:hover {
+	background: #e96664;
 	box-shadow: 8px 8px 0px #da4b4b, inset 4px 4px 4px rgba(255, 238, 181, 0.32);
-	border-radius: 24px;
+}
+.end-game-btn:active {
+	background: #da4b4b;
+	border: 1px solid #da4b4b;
+	box-shadow: inset 4px 4px 4px rgba(255, 238, 181, 0.32);
 }
 
 .continue-game-btn {
 	background: #1db51d;
 	border: 1px solid #1db51d;
+	box-shadow: 6px 6px 0px #158315, inset 4px 4px 4px rgba(255, 238, 181, 0.32);
+}
+
+.continue-game-btn:hover {
+	background: #32d132;
 	box-shadow: 8px 8px 0px #158315, inset 4px 4px 4px rgba(255, 238, 181, 0.32);
-	border-radius: 24px;
+}
+
+.continue-game-btn:active {
+	background: #158315;
+	box-shadow: inset 4px 4px 4px rgba(255, 238, 181, 0.32);
 }
