@@ -252,11 +252,18 @@ const GameBoard = () => {
 					/>
 				)}
 			</div>
-			<div className='w-full absolute road'>
+			<div
+				className='w-full absolute road'
+				style={{
+					backgroundImage: `url(${Road})`,
+					backgroundSize: 'cover',
+					backgroundRepeat: 'no-repeat',
+					backgroundPosition: 'center',
+				}}>
 				<img
 					src={Road}
 					alt='Road'
-					className='w-screen'
+					style={{ display: 'none' }}
 				/>
 			</div>
 			{!isCarouselOpen && isSelectedItemVisible && (
