@@ -34,7 +34,7 @@ import WineBottle from './images/ItemWineBottle.svg';
 export const disposalMethods = [
 	{
 		id: 'bulk-pickup-truck',
-		name: 'Bulk Pickup',
+		name: 'BulkPickup',
 		description:
 			'Bulky waste means large items of solid waste such as household appliances, furniture, large auto parts, trees, branches, stumps, and other oversize wastes whose large size precludes or complicates their handling by normal solid wastes collection, processing, or disposal methods.',
 		icon: BulkPickupTruckIcon,
@@ -62,7 +62,7 @@ export const disposalMethods = [
 	},
 	{
 		id: 'hazardous-waste-bin',
-		name: 'Hazardous Waste',
+		name: 'HazardousWaste',
 		description:
 			'Hazardous waste is waste that has substantial or potential threats to public health or the environment. Hazardous waste is a type of dangerous goods. Many hazardous wastes can be recycled safely and effectively, while other wastes will be treated and disposed of in landfills or incinerators.',
 		icon: HazardousWasteBinIcon,
@@ -138,190 +138,184 @@ export const disposalItems = [
 		id: 'item-1',
 		name: 'Apple',
 		status: '',
-		disposalMethod: 'Compost',
-		recarnatesTo: ['Fertilizer'],
+		itemDisposalMethods: { Compost: { recarnatesTo: ['Fertilizer'] } },
 		image: Apple,
 	},
 	{
 		id: 'item-2',
 		name: 'Lithium Battery',
 		status: '',
-		disposalMethod: 'Hazardous Waste',
-		recarnatesTo: ['Critical cobalt', 'graphite', 'lithium minerals'],
+		itemDisposalMethods: {
+			HazardousWaste: {
+				recarnatesTo: ['Critical cobalt', 'graphite', 'lithium minerals'],
+			},
+		},
 		image: Battery,
 	},
 	{
 		id: 'item-3',
 		name: 'Coffee Cup',
 		status: '',
-		disposalMethod: 'Trash',
-		recarnatesTo: ['Though correct, its 💀'],
+		itemDisposalMethods: {
+			Trash: { recarnatesTo: ['Though correct, its 💀'] },
+		},
 		image: DisposableCoffeCup,
 	},
 	{
 		id: 'item-4',
 		name: 'Gas Cylinder',
 		status: '',
-		disposalMethod: 'Hazardous Waste',
-		recarnatesTo: ['Scrap Metal', 'Steel', 'Copper'],
+		itemDisposalMethods: {
+			HazardousWaste: { recarnatesTo: ['Scrap Metal', 'Steel', 'Copper'] },
+			Repurpose: { recarnatesTo: ['Portable firepit', 'Stove'] },
+		},
 		image: GasCylinder,
 	},
-	// {
-	// 	id: 'item-5',
-	// 	name: 'Gas Cylinder',
-	// 	status: '',
-	// 	disposalMethod: 'Repurpose',
-	// 	recarnatesTo: ['Portable firepit', 'Stove'],
-	// 	image: GasCylinder,
-	// },
 	{
 		id: 'item-6',
 		name: 'Microwave',
 		status: '',
-		disposalMethod: 'Bulk Pickup',
-		recarnatesTo: ['Metal for circuitry'],
+		itemDisposalMethods: {
+			BulkPickup: { recarnatesTo: ['Metal for circuitry'] },
+		},
 		image: Microwave,
 	},
 	{
 		id: 'item-7',
 		name: 'Paper Coffee Filter',
 		status: '',
-		disposalMethod: 'Compost',
-		recarnatesTo: ['Fertilizer'],
+		itemDisposalMethods: { Compost: { recarnatesTo: ['Fertilizer'] } },
 		image: PaperCoffeeFilter,
 	},
 	{
 		id: 'item-8',
 		name: 'Clean Paper Plate',
 		status: 'clean',
-		disposalMethod: 'Recycle',
-		recarnatesTo: [
-			'Paper towels',
-			'Tissues',
-			'Printing paper',
-			'Writing paper',
-		],
+		itemDisposalMethods: {
+			Recycle: {
+				recarnatesTo: [
+					'Paper towels',
+					'Tissues',
+					'Printing paper',
+					'Writing paper',
+				],
+			},
+		},
 		image: PaperPlateClean,
 	},
 	{
 		id: 'item-9',
 		name: 'Dirty Paper Plate',
 		status: 'dirty',
-		disposalMethod: 'Trash',
-		recarnatesTo: ['Though correct, its 💀'],
+		itemDisposalMethods: {
+			Trash: { recarnatesTo: ['Though correct, its 💀'] },
+		},
 		image: PaperPlateDirty,
 	},
 	{
 		id: 'item-10',
 		name: 'Clean Pizza Box',
 		status: 'clean',
-		disposalMethod: 'Recycle',
-		recarnatesTo: [
-			'Paper towels',
-			'Tissues',
-			'Printing paper',
-			'Writing paper',
-		],
+		itemDisposalMethods: {
+			Recycle: {
+				recarnatesTo: [
+					'Paper towels',
+					'Tissues',
+					'Printing paper',
+					'Writing paper',
+				],
+			},
+			Repurpose: { recarnatesTo: ['Cat Bed'] },
+		},
 		image: PizzaBoxClean,
 	},
-	// {
-	// 	id: 'item-11',
-	// 	name: 'Pizza Box',
-	// 	status: 'clean',
-	// 	disposalMethod: 'Repurpose',
-	// 	recarnatesTo: ['Cat Bed'],
-	// 	image: PizzaBoxClean,
-	// },
 	{
 		id: 'item-12',
 		name: 'Dirty Pizza Box',
 		status: 'dirty',
-		disposalMethod: 'Trash',
-		recarnatesTo: ['Though correct, its 💀'],
+		itemDisposalMethods: {
+			Trash: { recarnatesTo: ['Though correct, its 💀'] },
+		},
 		image: PizzaBoxDirty,
 	},
 	{
 		id: 'item-13',
 		name: 'Plastic Bag',
 		status: '',
-		disposalMethod: 'Trash',
-		recarnatesTo: ['Though correct, its 💀'],
+		itemDisposalMethods: {
+			Trash: { recarnatesTo: ['Though correct, its 💀'] },
+		},
 		image: PlasticBag,
 	},
 	{
 		id: 'item-14',
 		name: 'Table',
 		status: '',
-		disposalMethod: 'Bulk Pickup',
-		recarnatesTo: ['Reclaimed wood'],
+		itemDisposalMethods: {
+			BulkPickup: { recarnatesTo: ['Reclaimed wood'] },
+		},
 		image: Table,
 	},
 	{
 		id: 'item-15',
 		name: 'Takeout Container',
 		status: 'clean',
-		disposalMethod: 'Recycle',
-		recarnatesTo: ['Material for new containers'],
+		itemDisposalMethods: {
+			Recycle: { recarnatesTo: ['Material for new containers'] },
+		},
 		image: TakeoutContainerClean,
 	},
 	{
 		id: 'item-16',
 		name: 'Takeout Container',
 		status: 'dirty',
-		disposalMethod: 'Trash',
-		recarnatesTo: ['Though correct, its 💀'],
+		itemDisposalMethods: {
+			Trash: { recarnatesTo: ['Though correct, its 💀'] },
+		},
 		image: TakeoutContainerDirty,
 	},
 	{
 		id: 'item-17',
 		name: 'Tire',
 		status: '',
-		disposalMethod: 'Bulk Pickup',
-		recarnatesTo: ['Rubber for tools '],
+		itemDisposalMethods: {
+			BulkPickup: { recarnatesTo: ['Rubber for tools '] },
+		},
 		image: Tire,
 	},
 	{
 		id: 'item-18',
 		name: 'Water Bottle',
 		status: 'clean',
-		disposalMethod: 'Recycle',
-		recarnatesTo: ['Material for new containers '],
+		itemDisposalMethods: {
+			Recycle: { recarnatesTo: ['Material for new containers '] },
+		},
 		image: WaterBottleClean,
 	},
 	{
 		id: 'item-19',
 		name: 'Water Bottle',
 		status: 'dirty',
-		disposalMethod: 'Trash',
-		recarnatesTo: ['Though correct, its 💀'],
+		itemDisposalMethods: {
+			Trash: { recarnatesTo: ['Though correct, its 💀'] },
+		},
 		image: WaterBottleDirty,
 	},
 	{
 		id: 'item-20',
 		name: 'Wine',
 		status: '',
-		disposalMethod: 'Compost',
-		recarnatesTo: ['Fertilizer'],
+		itemDisposalMethods: { Compost: { recarnatesTo: ['Fertilizer'] } },
 		image: Wine,
 	},
 	{
 		id: 'item-21',
 		name: 'Wine Bottle',
 		status: '',
-		disposalMethod: 'Recycle',
-		recarnatesTo: ['Material for new containers'],
+		itemDisposalMethods: {
+			Recycle: { recarnatesTo: ['Material for new containers'] },
+			Repurpose: { recarnatesTo: ['Candle'] },
+		},
 		image: WineBottle,
 	},
-	// {
-	// 	id: 'item-22',
-	// 	name: 'Wine Bottle',
-	// 	status: '',
-	// 	disposalMethod: 'Repurpose',
-	// 	recarnatesTo: ['Candle'],
-	// 	image: WineBottle,
-	// },
 ];
-
-export const correctResponses = [{}];
-
-export const inCorrectResponses = [{}];
